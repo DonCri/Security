@@ -67,7 +67,7 @@
             IPS_SetHidden($this->GetIDForIdent("NewPassword"), true);
 
             // Eigenschaften für Formular
-            $this->RegisterPropertyInteger("Supplement", "0");
+            $this->RegisterPropertyString("Supplement", "[]");
         }
 
 
@@ -112,7 +112,7 @@
             $Password = GetValue($this->GetIDForIdent("Password"));
             $NewPassword = GetValue($this->GetIDForIdent("NewPassword"));
             $State = GetValue($this->GetIDForIdent("State"));
-            $arrayString = $this->ReadPropertyInteger("Supplement");
+            $arrayString = $this->ReadPropertyString("Supplement");
             $arr = json_decode($arrayString);
 
             if($Password == $NewPassword && $State == false)
