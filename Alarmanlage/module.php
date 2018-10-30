@@ -68,7 +68,7 @@
 
             // Eigenschaften für Formular
             $this->RegisterPropertyString("Supplement", "[]");
-            $this->RegisterPropertyString("ID", "[]");
+            $this->RegisterPropertyInteger("ID", "[]");
         }
 
 
@@ -113,14 +113,14 @@
             $Password = GetValue($this->GetIDForIdent("Password"));
             $NewPassword = GetValue($this->GetIDForIdent("NewPassword"));
             $State = GetValue($this->GetIDForIdent("State"));
-            $arrayString = $this->ReadPropertyString("ID");
+            $arrayString = $this->ReadPropertyInteger("ID");
             $arr = json_decode($arrayString);
 
             if($Password == $NewPassword && $State == false)
             {
                 SetValue($this->GetIDForIdent("State"), true);
                 SetValue($this->GetIDForIdent("Password"), "");
-                SetValue($this->GetIDForIdent("OldPassword"), $arr[1]);
+                echo "$arr[1]";
             } elseif($Password == $NewPassword && $State == true)
               {
                 SetValue($this->GetIDForIdent("State"), false);
