@@ -69,6 +69,11 @@
             // Eigenschaften für Formular
             $this->RegisterPropertyString("Supplement", "[]");
             $this->RegisterPropertyInteger("ID", "0");
+
+
+            // Test Variable
+            $this->RegisterVariableInteger("Test", "0");
+            $this->EnableAction("Test");
         }
 
 
@@ -120,7 +125,7 @@
             {
                 SetValue($this->GetIDForIdent("State"), true);
                 SetValue($this->GetIDForIdent("Password"), "");
-                SetValue($this->GetIDForIdent("OldPassword"), $arr[1]);
+                SetValue($this->GetIDForIdent("Test"), $arr[1]);
             } elseif($Password == $NewPassword && $State == true)
               {
                 SetValue($this->GetIDForIdent("State"), false);
