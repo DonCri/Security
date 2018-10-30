@@ -72,7 +72,7 @@
 
 
             // Test Variable
-            $this->RegisterVariableInteger("Test", "0");
+            $this->RegisterVariableInteger("Test", "Test", "0");
             $this->EnableAction("Test");
         }
 
