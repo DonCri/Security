@@ -67,7 +67,7 @@
             IPS_SetHidden($this->GetIDForIdent("NewPassword"), true);
 
             // Eigenschaften für Formular
-            $this->RegisterPropertyString("Supplement", "[]");
+            $this->RegisterPropertyString("Supplement", "");
         }
 
 
