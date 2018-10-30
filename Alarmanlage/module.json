@@ -1,0 +1,14 @@
+{
+    "id": "{3f9f7275-a8f9-42a8-9a59-63cd83503b6c}",
+    "name": "Alarmanlage",
+    "type": 3,
+    "vendor": "BRELAG",
+    "aliases":
+        [
+            "Alarmanlage"
+        ],
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "MW"
+}
