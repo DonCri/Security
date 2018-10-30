@@ -5,6 +5,7 @@
       "type": "List",
       "name": "Supplement",
       "caption": "Supplement",
+      "rowCount": 10,
       "add": true,
       "delete": true,
       "sort": {
