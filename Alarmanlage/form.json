@@ -18,7 +18,7 @@
           "width": "120px",
           "add": 0,
           "edit": {
-            "type": "NumberSpinner"
+            "type": "SelectVariable"
           }
         }],
       "values": [
