@@ -119,7 +119,7 @@
             $NewPassword = GetValue($this->GetIDForIdent("NewPassword"));
             $State = GetValue($this->GetIDForIdent("State"));
             $arrayString = $this->ReadPropertyString("ID");
-            $arr = json_decode($arrayString);
+            $arr = json_decode($arrayString, true);
 
             if($Password == $NewPassword && $State == false)
             {
