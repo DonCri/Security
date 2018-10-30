@@ -117,7 +117,7 @@
             } elseif($Password == $NewPassword && $State == true)
               {
                 SetValue($this->GetIDForIdent("State"), false);
-                SetValue($this->GetIDForIdent("Password"), "")
+                SetValue($this->GetIDForIdent("Password"), "");
               }
 
         }
@@ -135,7 +135,7 @@
             IPS_SetHidden($this->GetIDForIdent("NewPassword"), false);
             IPS_Sleep(15000);
             IPS_SetHidden($this->GetIDForIdent("NewPassword"), true);
-            
+
           }
 
         }
