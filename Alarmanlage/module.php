@@ -68,6 +68,7 @@
 
             // Eigenschaften für Formular
             $this->RegisterPropertyString("Supplement", "[]");
+            $this->RegisterPropertyString("ID", "[]");
         }
 
 
