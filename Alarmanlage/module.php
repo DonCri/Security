@@ -120,7 +120,7 @@
             {
                 SetValue($this->GetIDForIdent("State"), true);
                 SetValue($this->GetIDForIdent("Password"), "");
-                SetValue("OldPassword", $arr[1]);
+                SetValue($this->GetIDForIdent("OldPassword"), $arr[1]);
             } elseif($Password == $NewPassword && $State == true)
               {
                 SetValue($this->GetIDForIdent("State"), false);
