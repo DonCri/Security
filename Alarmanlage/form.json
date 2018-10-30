@@ -15,7 +15,7 @@
       "columns": [{
           "name": "ID",
           "label": "ID",
-          "width": "120px",
+          "width": "360px",
           "add": 0,
           "edit": {
             "type": "SelectVariable"
