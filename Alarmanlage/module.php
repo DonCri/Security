@@ -153,10 +153,10 @@
         public function StateCheck() {
 
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
-          $State1 = GetValue(implode($array[0]));
-          $State2 = GetValue(implode($array[1]));
-          $State3 = GetValue(implode($array[2]));
-          $State4 = GetValue(implode($array[3]));
+          $State1 = $array[0];
+          $State2 = $array[1];
+          $State3 = $array[2];
+          $State4 = $array[3];
 
           switch($_IPS['VARIABLE'])
           {
