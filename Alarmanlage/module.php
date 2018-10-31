@@ -68,7 +68,7 @@
 
             // Eigenschaften für Formular
             $this->RegisterPropertyString("Supplement", "[]");
-            $this->RegisterPropertyString("ID", "[]");
+            $this->RegisterPropertyBoolean("ID", "[]");
 
 
             // Test Variable
@@ -118,7 +118,7 @@
             $Password = GetValue($this->GetIDForIdent("Password"));
             $NewPassword = GetValue($this->GetIDForIdent("NewPassword"));
             $State = GetValue($this->GetIDForIdent("State"));
-            $arrayString = $this->ReadPropertyString("ID");
+            $arrayString = $this->ReadPropertyBoolean("ID");
             $arr = json_decode($arrayString, true);
 
             if($Password == $NewPassword && $State == false)
