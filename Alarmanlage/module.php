@@ -118,13 +118,12 @@
             $Password = GetValue($this->GetIDForIdent("Password"));
             $NewPassword = GetValue($this->GetIDForIdent("NewPassword"));
             $State = GetValue($this->GetIDForIdent("State"));
-            $arr = json_decode($this->ReadPropertyString("Supplement"), true);
+
 
             if($Password == $NewPassword && $State == false)
             {
                 SetValue($this->GetIDForIdent("State"), true);
                 SetValue($this->GetIDForIdent("Password"), "");
-                SetValueString($this->GetIDForIdent("Test"), implode($arr[1]));
             } elseif($Password == $NewPassword && $State == true)
               {
                 SetValue($this->GetIDForIdent("State"), false);
@@ -150,5 +149,38 @@
           }
 
         }
+
+        public function StateCheck() {
+
+          $array = json_decode($this->ReadPropertyString("Supplement"), true);
+
+          switch($_IPS['VARIABLE'])
+          {
+            case $array[0]:
+              switch($_IPS['VALUE'])
+              {
+                case true:
+                  echo "ACHTUNG ALARM";
+                break;
+              }
+            break;
+
+            case $array[1]:
+
+            break;
+
+            case $array[2]:
+
+            break;
+
+            case $array[3]:
+
+            break;
+          }
+
+        }
+
+
+
     }
 ?>
