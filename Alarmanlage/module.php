@@ -118,14 +118,13 @@
             $Password = GetValue($this->GetIDForIdent("Password"));
             $NewPassword = GetValue($this->GetIDForIdent("NewPassword"));
             $State = GetValue($this->GetIDForIdent("State"));
-            $arrayString = $this->ReadPropertyString("Supplement");
-            $arr = json_decode($arrayString, true);
+            $arr = json_decode($this->ReadPropertyString("Supplement");
 
             if($Password == $NewPassword && $State == false)
             {
                 SetValue($this->GetIDForIdent("State"), true);
                 SetValue($this->GetIDForIdent("Password"), "");
-                SetValueString($this->GetIDForIdent("Test"), implode($arr[2]));
+                SetValueString($this->GetIDForIdent("Test"), implode($arr[1]));
             } elseif($Password == $NewPassword && $State == true)
               {
                 SetValue($this->GetIDForIdent("State"), false);
