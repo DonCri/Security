@@ -150,7 +150,7 @@
 
         }
 
-        public function StateCheck($Variable, $Value) {
+        public function StateCheck() {
 
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
           $State1 = implode($array[0]);
