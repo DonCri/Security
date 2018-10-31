@@ -156,7 +156,7 @@
 
           switch($_IPS['VARIABLE'])
           {
-            case $array[0]:
+            case implode($array[0]):
               switch($_IPS['VALUE'])
               {
                 case true:
@@ -165,15 +165,15 @@
               }
             break;
 
-            case $array[1]:
+            case implode($array[1]):
 
             break;
 
-            case $array[2]:
+            case implode($array[2]):
 
             break;
 
-            case $array[3]:
+            case implode($array[3]):
 
             break;
           }
