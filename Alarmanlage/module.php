@@ -153,10 +153,14 @@
         public function StateCheck() {
 
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
+          $State1 = GetValue(implode($array[0]));
+          $State2 = GetValue(implode($array[1]));
+          $State3 = GetValue(implode($array[2]));
+          $State4 = GetValue(implode($array[3]));
 
           switch($_IPS['VARIABLE'])
           {
-            case implode($array[0]):
+            case $State1:
               switch($_IPS['VALUE'])
               {
                 case true:
@@ -165,15 +169,15 @@
               }
             break;
 
-            case implode($array[1]):
+            case $State2:
 
             break;
 
-            case implode($array[2]):
+            case $State3:
 
             break;
 
-            case implode($array[3]):
+            case $State4:
 
             break;
           }
