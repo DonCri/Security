@@ -150,7 +150,7 @@
 
         }
 
-        public function StateCheck() {
+        public function StateCheck($Variable, $Value) {
 
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
           $State1 = $array[0];
@@ -158,10 +158,10 @@
           $State3 = $array[2];
           $State4 = $array[3];
 
-          switch($_IPS['VARIABLE'])
+          switch($Variable)
           {
             case $State1:
-              switch($_IPS['VALUE'])
+              switch($Value)
               {
                 case true:
                   echo "ACHTUNG ALARM";
