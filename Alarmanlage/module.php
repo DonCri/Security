@@ -68,7 +68,7 @@
 
             // Eigenschaften für Formular
             $this->RegisterPropertyString("Supplement", "[]");
-            $this->RegisterPropertyBoolean("ID", "[]");
+            $this->RegisterPropertyBoolean("ID", false);
 
 
             // Test Variable
