@@ -150,16 +150,17 @@
 
         }
 
-        public function StateCheck(string $Ausloeser, string $ID) {
+        public function StateCheck(string $ID) {
 
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
 
+          $Value = false;
           $State1 = $array[0];
           $State2 = $array[1];
           $State3 = $array[2];
           $State4 = $array[3];
 
-          switch($Variable)
+          switch($ID)
           {
             case $State1:
               switch($Value)
