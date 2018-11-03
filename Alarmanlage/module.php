@@ -154,10 +154,10 @@
 
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
 
-          $State1 = int($array[0]);
-          $State2 = int($array[1]);
-          $State3 = int($array[2]);
-          $State4 = int($array[3]);
+          $State1 = implode($array[0]);
+          $State2 = implode($array[1]);
+          $State3 = implode($array[2]);
+          $State4 = implode($array[3]);
 
           switch($ID)
           {
