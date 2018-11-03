@@ -165,7 +165,7 @@
               switch($Value)
               {
                 case true:
-                  echo "ACHTUNG ALARM";
+                  SetValue($this->GetIDForIdent("Test"), "Achtung: Alarm");
                 break;
               }
             break;
