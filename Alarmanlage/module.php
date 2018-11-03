@@ -150,10 +150,11 @@
 
         }
 
-        public function StateCheck(int $ID, bool $Value) {
+        public function StateCheck() {
 
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
-
+          $ID = "";
+          $Value = "";
           $State1 = implode($array[0]);
           $State2 = implode($array[1]);
           $State3 = implode($array[2]);
