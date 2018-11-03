@@ -153,33 +153,22 @@
         public function StateCheck() {
 
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
-          $ID = "";
-          $Value = "";
-          $State1 = implode($array[0]);
-          $State2 = implode($array[1]);
-          $State3 = implode($array[2]);
-          $State4 = implode($array[3]);
 
           switch($ID)
           {
-            case $State1:
-              switch($Value)
-              {
-                case true:
-                  SetValue($this->GetIDForIdent("Test"), "Achtung: Alarm");
-                break;
-              }
+            case implode($array[0]):
+                  SetValue($this->GetIDForIdent("Test"), "Achtung: Alarm");    
             break;
 
-            case $State2:
+            case implode($array[1]):
 
             break;
 
-            case $State3:
+            case implode($array[2]):
 
             break;
 
-            case $State4:
+            case implode($array[3]):
 
             break;
           }
