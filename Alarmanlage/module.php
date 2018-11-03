@@ -150,14 +150,14 @@
 
         }
 
-        public function StateCheck(string $ID, bool $Value) {
+        public function StateCheck(int $ID, bool $Value) {
 
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
 
-          $State1 = $array[0];
-          $State2 = $array[1];
-          $State3 = $array[2];
-          $State4 = $array[3];
+          $State1 = int($array[0]);
+          $State2 = int($array[1]);
+          $State3 = int($array[2]);
+          $State4 = int($array[3]);
 
           switch($ID)
           {
