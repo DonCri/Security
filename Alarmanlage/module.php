@@ -73,7 +73,7 @@
 
             // Test Variable
             $this->RegisterVariableString("TestString", "TestString", "", "0");
-            $this->EnableAction("TestBoolean");
+            $this->EnableAction("TestString");
             
             $this->RegisterVariableBoolean("TestBoolean", "TestBoolean", "", "0");
             $this->EnableAction("TestBoolean");
