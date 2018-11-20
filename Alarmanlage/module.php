@@ -155,12 +155,9 @@
         public function StateCheck() {
            
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
-          $_1 = implode($array[0]);
-          $_2 = implode($array[1]);
-          $_3 = implode($array[2]);
-          $_4 = implode($array[3]);
           
-            SetValue($this->GetIDForIdent("TestBoolean"), GetValue($_1));
+          
+            SetValue($this->GetIDForIdent("TestBoolean"), GetValue(intval[0]));
             
         }
 
