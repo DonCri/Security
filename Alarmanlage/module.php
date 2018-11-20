@@ -161,7 +161,7 @@
           $_3 = implode($array[2]);
           $_4 = implode($array[3]);
           
-            SetValue($this->GetIDForIdent("TestBoolean"), $_1array["ValueBoolean"]);
+            $this->GetIDForIdent("TestBoolean") = $_1array["ValueBoolean"];
             
         }
 
