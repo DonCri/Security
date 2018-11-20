@@ -157,7 +157,7 @@
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
            
           
-            SetValue($this->GetIDForIdent("TestBoolean"), GetValue(intval($array[0])));
+            SetValue($this->GetIDForIdent("TestBoolean"), GetValue(implode($array[0])));
             
         }
 
