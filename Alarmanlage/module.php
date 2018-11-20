@@ -72,8 +72,11 @@
 
 
             // Test Variable
-            $this->RegisterVariableString("Test", "Test", "", "0");
-            $this->EnableAction("Test");
+            $this->RegisterVariableString("TestString", "TestString", "", "0");
+            $this->EnableAction("TestBoolean");
+            
+            $this->RegisterVariableBoolean("TestBoolean", "TestBoolean", "", "0");
+            $this->EnableAction("TestBoolean");
         }
 
 
@@ -153,11 +156,12 @@
 
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
           $_1 = implode($array[0]);
+          $_1array = IPS_GetVariable($_1);
           $_2 = implode($array[1]);
           $_3 = implode($array[2]);
           $_4 = implode($array[3]);
           
-            SetValue($this->GetIDForIdent("Test"), $_1);
+            SetValue($this->GetIDForIdent("TestBoolean"), $_1array["ValueBoolean"]);
             
         }
 
