@@ -161,7 +161,7 @@
           $_3 = implode($array[2]);
           $_4 = implode($array[3]);
           
-            echo "$_1array["ValueBoolean"]";
+            echo $_1array["ValueBoolean"];
             
         }
 
