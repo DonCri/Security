@@ -156,12 +156,11 @@
            
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
           $_1 = implode($array[0]);
-          $_1Value = GetValue($_1);
           $_2 = implode($array[1]);
           $_3 = implode($array[2]);
           $_4 = implode($array[3]);
           
-            SetValue($this->GetIDForIdent("TestBoolean"), $_1Value);
+            SetValue($this->GetIDForIdent("TestBoolean"), GetValue($_1));
             
         }
 
