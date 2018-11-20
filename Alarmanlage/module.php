@@ -145,7 +145,6 @@
             IPS_SetHidden($this->GetIDForIdent("NewPassword"), false);
             IPS_Sleep(15000);
             IPS_SetHidden($this->GetIDForIdent("NewPassword"), true);
-
           }
 
         }
@@ -157,15 +156,10 @@
           $_2 = implode($array[1]);
           $_3 = implode($array[2]);
           $_4 = implode($array[3]);
-
-          if($_1 == true or $_2 == true or $_3 == true or $_4 == true)
-          {
-            SetValue($this->GetIDForIdent("Test"), "ACHTUNG: Alarm");
-          }
-
+          
+            SetValue($this->GetIDForIdent("Test"), $_1);
+            
         }
-
-
 
     }
 ?>
