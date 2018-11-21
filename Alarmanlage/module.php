@@ -89,7 +89,7 @@
             
             if($_1 <> "")
             {
-              IPS_CreateVariable(3);
+              $this->RegisterVariableString("Alarm1", "Alarmierung 1", "", "0");
             }
             
         }
