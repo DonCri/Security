@@ -86,7 +86,7 @@
             
             $array = json_decode($this->ReadPropertyString("Supplement"), true);
             
-            if(implode($array[0]) > "")
+            if($array[0] <> "")
             {
               IPS_CreateVariable(3);
             }
@@ -172,10 +172,10 @@
 
         public function StateCheck() {
            
-          $array = json_decode($this->ReadPropertyString("Supplement"), true);
+          $array2 = json_decode($this->ReadPropertyString("Supplement"), true);
            
           
-            SetValue($this->GetIDForIdent("TestBoolean"), GetValue(implode($array[0])) );
+            SetValue($this->GetIDForIdent("TestBoolean"), GetValue(implode($array2[0])) );
             
         }
         
