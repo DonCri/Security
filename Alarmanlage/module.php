@@ -85,9 +85,9 @@
             parent::ApplyChanges();
             
             $array = json_decode($this->ReadPropertyString("Supplement"), true);
+            $_1 = implode($array[0]);
             
-            
-            if(implode($array[0]) <> "")
+            if($_1 <> "")
             {
               IPS_CreateVariable(3);
             }
