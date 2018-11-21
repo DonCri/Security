@@ -78,6 +78,20 @@
             $this->RegisterVariableBoolean("TestBoolean", "TestBoolean", "", "0");
             $this->EnableAction("TestBoolean");
         }
+        
+        public function ApplyChanges() {
+            
+            // Diese Zeile nicht löschen
+            parent::ApplyChanges();
+            
+            $array = json_decode($this->ReadPropertyString("Supplement"), true);
+            
+            if(implode($array[0]) > "")
+            {
+              IPS_CreateVariable(3);
+            }
+            
+        }
 
 
         // Überschreibt die intere IPS_ApplyChanges($id) Funktion
@@ -121,19 +135,21 @@
             $Password = GetValue($this->GetIDForIdent("Password"));
             $NewPassword = GetValue($this->GetIDForIdent("NewPassword"));
             $State = GetValue($this->GetIDForIdent("State"));
+            $currentPassword = "";
 
 
-            if($Password == $NewPassword && $State == false)
+            if($Password == $currentPassword && $State == false)
             {
                 SetValue($this->GetIDForIdent("State"), true);
                 SetValue($this->GetIDForIdent("Password"), "");
-            } elseif($Password == $NewPassword && $State == true)
+            } elseif($Password == $currentPassword && $State == true)
               {
                 SetValue($this->GetIDForIdent("State"), false);
                 SetValue($this->GetIDForIdent("Password"), "");
               }
-
+              
         }
+        
 
         public function NewPassword() {
 
@@ -148,7 +164,9 @@
             IPS_SetHidden($this->GetIDForIdent("NewPassword"), false);
             IPS_Sleep(15000);
             IPS_SetHidden($this->GetIDForIdent("NewPassword"), true);
+            
           }
+          
 
         }
 
@@ -157,9 +175,10 @@
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
            
           
-            SetValue($this->GetIDForIdent("TestBoolean"), GetValue(implode($array[0])));
+            SetValue($this->GetIDForIdent("TestBoolean"), GetValue(implode($array[0])) );
             
         }
+        
 
     }
 ?>
