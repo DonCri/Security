@@ -78,21 +78,6 @@
             $this->RegisterVariableBoolean("TestBoolean", "TestBoolean", "", "0");
             $this->EnableAction("TestBoolean");
         }
-        
-        public function ApplyChanges() {
-            
-            // Diese Zeile nicht löschen
-            parent::ApplyChanges();
-            
-            $array = json_decode($this->ReadPropertyString("Supplement"), true);
-            $_1 = implode($array[0]);
-            
-            if($_1 <> "")
-            {
-              $this->RegisterVariableString("Alarm1", "Alarmierung 1", "", "0");
-            }
-            
-        }
 
 
         // Überschreibt die intere IPS_ApplyChanges($id) Funktion
@@ -173,10 +158,10 @@
 
         public function StateCheck() {
            
-          $array2 = json_decode($this->ReadPropertyString("Supplement"), true);
+          $array = json_decode($this->ReadPropertyString("Supplement"), true);
            
           
-            SetValue($this->GetIDForIdent("TestBoolean"), GetValue(implode($array2[0])) );
+            SetValue($this->GetIDForIdent("TestBoolean"), GetValue(implode($array[0])) );
             
         }
         
