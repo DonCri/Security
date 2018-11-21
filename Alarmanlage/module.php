@@ -86,7 +86,8 @@
             
             $array = json_decode($this->ReadPropertyString("Supplement"), true);
             
-            if($array[0] <> "")
+            
+            if(implode($array[0]) <> "")
             {
               IPS_CreateVariable(3);
             }
