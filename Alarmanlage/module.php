@@ -161,12 +161,17 @@
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
            
           
-          foreach ($array as $StatusID) { }
-          
-          if($StatusID = true)
+          foreach ($array as $StatusID) 
           {
-              echo "Alarm";
+              $State = intval($StatusID);
+              
+              if($State = true)
+              {
+                  echo "Alarm";
+              }
           }
+          
+          
           
             SetValue($this->GetIDForIdent("TestBoolean"), GetValue(implode($array[0])) );
             
