@@ -162,11 +162,8 @@
            
           
           foreach ($array as $StatusID)
-          {
-              $Status = implode($StatusID);
-          }
           
-          if($Status = true)
+          if(implode($StatusID) = true)
           {
               echo "Alarm";
           }
