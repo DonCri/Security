@@ -163,8 +163,9 @@
           
           foreach ($array as $StatusID)
           {
+              $Status = Intval($StatusID);
               
-              if ($StatusID = true) {
+              if ($Status = true) {
                   echo "Alarm";
               }
           }
