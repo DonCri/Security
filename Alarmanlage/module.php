@@ -163,9 +163,9 @@
           
           foreach ($array as $StatusID) 
           {
-              $State = GetValue(intval($StatusID));
               
-              if($State = true)
+              
+              if($StatusID == true)
               {
                   echo "Alarm";
               }
