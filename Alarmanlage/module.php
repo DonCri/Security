@@ -163,7 +163,7 @@
           
           foreach ($array as $StatusID) 
           {
-              $State = intval($StatusID);
+              $State = GetValue($StatusID);
               
               if($State = true)
               {
