@@ -166,7 +166,7 @@
               $Status = Intval($StatusID);
               
               if ($Status = true) {
-                  SetValue($this-GetIDforIdent("TestString"), $StatusID);
+                  SetValue($this->GetIDforIdent("TestString"), $StatusID);
               }
           }
           
