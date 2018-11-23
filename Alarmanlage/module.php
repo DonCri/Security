@@ -164,10 +164,11 @@
           foreach ($array as $StatusID)
           {
               $Status = implode($StatusID);
-              
-              if ($Status = true) {
-                  SetValue($this->GetIDforIdent("TestString"), implode($StatusID));
-              }
+          }
+          
+          if($Status = true)
+          {
+              echo "Alarm";
           }
           
             SetValue($this->GetIDForIdent("TestBoolean"), GetValue(implode($array[0])) );
