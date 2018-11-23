@@ -163,11 +163,11 @@
           
           foreach ($array as $StatusID) 
           {
+              $State = GetValue($StatusID);
               
-              
-              if($StatusID == true)
+              if($State == true)
               {
-                  echo "Alarm";
+                  echo "Einbruch";
               }
           }
           
