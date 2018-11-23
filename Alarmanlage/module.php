@@ -163,7 +163,7 @@
           
           foreach ($array as $StatusID)
           {
-              $Status = Intval($StatusID);
+              $Status = implode($StatusID);
               
               if ($Status = true) {
                   SetValue($this->GetIDforIdent("TestString"), implode($StatusID));
