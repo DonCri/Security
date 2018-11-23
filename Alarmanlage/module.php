@@ -166,7 +166,7 @@
               $Status = Intval($StatusID);
               
               if ($Status = true) {
-                  echo "Alarm";
+                  SetValue($this-GetIDforIdent("TestString"), $StatusID);
               }
           }
           
