@@ -46,6 +46,12 @@
             }
             // Boolean für Statusanzeige der Alarmanlage, ist inaktiv!
             $this->RegisterVariableBoolean("State", "Status", "BRELAG.AlarmStatus", "0");
+            
+            // Zeigt der Letzte Alarm im Array
+            $this->RegisterVariableString("LastAlert", "Letzter Alarm", "", "0"); 
+            
+            // Setzt einen Timer für den Status check der Magnetkontakt Variablen
+            $this->RegisterTimer("StatusCheck", 15000, " MW_StateCheck($_IPS['SELF']); ");
 
             // Stringvariable für Passwort Eingabe um Anlage scharf bzw. unschaf zu schalten, ist aktiv!
             $this->RegisterVariableString("Password", "Passwort Eingabe", "", "1");
@@ -63,7 +69,7 @@
             $this->EnableAction("Quittierung");
 
             // Stringvariable für ändern des Passworts, Variable "Neues Passwort" verborgen aber beide aktiv!
-            $this->RegisterVariableString("OldPassword", "Aktuelles Passwort", "", "4");
+            $this->RegisterVariableString("OldPassword", "Passwort ändern", "", "4");
             $this->EnableAction("OldPassword");
             $this->RegisterVariableString("NewPassword", "Neues Passwort", "", "5");
             $this->EnableAction("NewPassword");
@@ -76,14 +82,8 @@
             $this->RegisterPropertyInteger("WebFrontName", 0);
 
 
-            // Test Variable
-            $this->RegisterVariableString("TestString", "TestString", "", "0");
-            $this->EnableAction("TestString");
-            
-            
-            
-            $this->RegisterVariableBoolean("TestBoolean", "TestBoolean", "", "0");
-            $this->EnableAction("TestBoolean");
+            // Test Variablen
+                      
         }
 
 
@@ -183,7 +183,7 @@
                                     echo "$StatusID Einbruch <br>";
                                     $InstanzID = IPS_GetParent($StatusID);
                                     $InstanzName = IPS_GetName($InstanzID);
-                                    SetValue($this->GetIDforIdent("TestString"), $InstanzName);
+                                    SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), 'Alarm:', "$InstanzName wurde geöffnet", '', $InstanzID);
                                 }
                         
