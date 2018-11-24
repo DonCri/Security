@@ -51,7 +51,7 @@
             $this->RegisterVariableString("LastAlert", "Letzter Alarm", "", "0"); 
             
             // Setzt einen Timer für den Status check der Magnetkontakt Variablen
-            $this->RegisterTimer("StatusCheck", 15000, 'MW_StateCheck($_IPS[\'TARGET\']);');
+            $this->RegisterTimer("StatusCheck", $this->ReadProperty("UpdateTime"), 'MW_StateCheck($_IPS[\'TARGET\']);');
 
             // Stringvariable für Passwort Eingabe um Anlage scharf bzw. unschaf zu schalten, ist aktiv!
             $this->RegisterVariableString("Password", "Passwort Eingabe", "", "1");
@@ -81,6 +81,7 @@
             $this->RegisterPropertyString("PushTitel", ""); // Titel welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("PushText", ""); // Test welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("AlertSound", ""); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon)
+            $this->RegisterPropertyInteger("UpdateTime". 15000); // Intervall des Status Check in ms
 
 
             // Test Variablen
@@ -207,9 +208,6 @@
                                 }
                                
                             }
-                    break;
-                    
-                    default:
                     break;
                   
                     } 
