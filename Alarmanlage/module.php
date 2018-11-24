@@ -75,6 +75,8 @@
             $this->RegisterVariableString("TestString", "TestString", "", "0");
             $this->EnableAction("TestString");
             
+            $this->RegisterVariableString("ContactName", "Magnetkontakt Name", "", "");
+            
             $this->RegisterVariableBoolean("TestBoolean", "TestBoolean", "", "0");
             $this->EnableAction("TestBoolean");
         }
@@ -163,9 +165,15 @@
           
           foreach ($array as $StatusID) 
           {
-                    $Status = implode($StatusID);
-                  echo "$Status Einbruch <br>";
-              
+                    $Status = GetValue($StatusID);
+                    
+                    if($Status == true)
+                    {
+                        echo "$Status Einbruch <br>";                        
+                        WFC_PushNotification(IPS_GetParent($Status), 'Warnung', 'Es regnet bald!', '', 0);
+                    }
+                  
+                  
           }
           
           
