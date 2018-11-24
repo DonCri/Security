@@ -165,10 +165,10 @@
           
           foreach ($array as $StatusIDstring) 
           {
-                    $StatusID = $StatusIDstring;
+                    $StatusID = implode($StatusIDstring);
                     // $Status = GetValueBoolean($StatusID);
                    
-                    echo "implode($StatusID)";
+                    echo "$StatusID";
                     SetValue($this->GetIDforIDent("Contact"), $StatusID);
                     // echo "$Status"; 
                     
