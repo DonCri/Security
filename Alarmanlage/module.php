@@ -163,9 +163,10 @@
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
            
           
-          foreach ($array as $StatusID) 
+          foreach ($array as $StatusIDstring) 
           {
-                    $Status = GetValue(intval($StatusID));
+                    $StatusID = intval($StatusIDstring);
+                    $Status = GetValue($StautsID);
                     
                     if($Status == true)
                     {
