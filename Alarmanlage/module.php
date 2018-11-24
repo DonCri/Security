@@ -211,10 +211,9 @@
                                     
                                 }
                                
-                            echo "$Titel: 
-                                 $InstanzName $Text <br>";
                           }
-                    
+                     echo "$Titel:
+                           $InstanzName $Text <br>";
                     
                break;                       
                   
