@@ -208,7 +208,7 @@
                                     
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text", '', $InstanzID);
-                                    WFC_SendPopup($_IPS['CONFIGURATOR'], "$Titel", "$InstanzName $Text");
+                                    WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text");
                                     
                                 }
                                
