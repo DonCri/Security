@@ -2,7 +2,7 @@
   "elements":
   [
   	{ "type": "Label", "caption": "WebFront"},
-  	{ "type": "ValidationTextBox", "name": "WebFrontID", "caption": "ID vom WebFront eingeben" },
+  	{ "type": "SelectInstance", "name": "WebFrontName", "caption": "Target" },
     {
       "type": "List",
       "name": "Supplement",
