@@ -168,7 +168,7 @@
                     $StatusID = $StatusIDstring;
                     // $Status = GetValueBoolean($StatusID);
                    
-                    echo "$StatusID";
+                    echo "implode($StatusID)";
                     SetValue($this->GetIDforIDent("Contact"), $StatusID);
                     // echo "$Status"; 
                     
