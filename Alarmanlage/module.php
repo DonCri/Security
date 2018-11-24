@@ -167,16 +167,17 @@
            
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
            
-          
-          foreach ($array as $StatusIDstring) 
-          {
-                    $StatusID = implode($StatusIDstring);
-                    $Status = GetValue($StatusID);          
-                    $AlarmStatus = GetValue($this->GetIDfForIdent("State"));
+          $AlarmStatus = GetValue($this->GetIDfForIdent("State"));
                     
-                    switch($AlarmStatus)
-                    {
-                        case true:
+          switch($AlarmStatus)
+           {
+               case true:
+                   
+                    foreach ($array as $StatusIDstring) 
+                        {
+                            $StatusID = implode($StatusIDstring);
+                            $Status = GetValue($StatusID);          
+                    
                             if($Status == true)
                                 {
                                     echo "$StatusID Einbruch <br>";
@@ -185,13 +186,12 @@
                                     SetValue($this->GetIDforIdent("TestString"), $InstanzName);
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), 'Alarm:', "$InstanzName wurde geöffnet", '', $InstanzID);
                                 }
-                        break;
-                    }
+                        
+                               }
                     
-                    
+               break;                       
                   
-                  
-          }
+            } 
          
             
         }
