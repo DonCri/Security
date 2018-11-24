@@ -198,14 +198,13 @@
                    
                     foreach ($array as $StatusIDstring) 
                         {
-                                    
+                            $StatusID = implode($StatusIDstring);
+                            $Status = GetValue($StatusID);
+                            $InstanzID = IPS_GetParent($StatusID);
+                            $InstanzName = IPS_GetName($InstanzID);        
                     
                             if($Status == true)
-                                {
-                                    $StatusID = implode($StatusIDstring);
-                                    $Status = GetValue($StatusID);
-                                    $InstanzID = IPS_GetParent($StatusID);
-                                    $InstanzName = IPS_GetName($InstanzID);                                   
+                                {                             
                                     echo "$StatusID Einbruch <br>";
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text", '', $InstanzID);
