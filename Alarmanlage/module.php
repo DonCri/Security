@@ -22,9 +22,7 @@
         			IPS_SetVariableProfileValues("BRELAG.AlarmModus", 0, 5, 0);
         			IPS_SetVariableProfileIcon("BRELAG.AlarmModus", "IPS");
         			IPS_SetVariableProfileAssociation("BRELAG.AlarmModus", 0, $this->Translate("ModeOne"), "", -1);
-        			IPS_SetVariableProfileAssociation("BRELAG.AlarmModus", 1, $this->Translate("ModeTwo"), "", -1);
-        			IPS_SetVariableProfileAssociation("BRELAG.AlarmModus", 2, $this->Translate("ModeOneTwo"), "", -1);
-        			IPS_SetVariableProfileAssociation("BRELAG.AlarmModus", 3, $this->Translate("ModeBell"), "", -1);
+        			IPS_SetVariableProfileAssociation("BRELAG.AlarmModus", 1, $this->Translate("ModeBell"), "", -1);
         		}
 
             //Progil für Quittierung
@@ -32,9 +30,10 @@
         			IPS_CreateVariableProfile("BRELAG.Quittierung", 1);
         			IPS_SetVariableProfileValues("BRELAG.Quittierung", 0, 3, 0);
         			IPS_SetVariableProfileIcon("BRELAG.Quittierung", "IPS");
-        			IPS_SetVariableProfileAssociation("BRELAG.Quittierung", 0, "Sabotage", "", -1);
-        			IPS_SetVariableProfileAssociation("BRELAG.Quittierung", 1, "Batterie", "", -1);
-        			IPS_SetVariableProfileAssociation("BRELAG.Quittierung", 2, "Lebensdauer", "", -1);
+        			IPS_SetVariableProfileAssociation("BRELAG.Quittierung", 0, "Alarmmeldung", "", -1);
+        			IPS_SetVariableProfileAssociation("BRELAG.Quittierung", 1, "Sabotage", "", -1);
+        			IPS_SetVariableProfileAssociation("BRELAG.Quittierung", 2, "Batterie", "", -1);
+        			IPS_SetVariableProfileAssociation("BRELAG.Quittierung", 3, "Lebensdauer", "", -1);
         		}
 
             // Profil für Statusanzeige
@@ -93,15 +92,19 @@
         // Überschreibt die intere IPS_ApplyChanges($id) Funktion
         public function RequestAction($Ident, $Value) {
 
+            $AlarmState = GetValue($this->GetIDForIdent("State"));
+            $AlarmQuittierung = GetValue($this->GetIDForIdent("Quittierung"));
+            
+            
               switch($Ident) {
                     case "Password":
                     //Neuen Wert in die Statusvariable schreiben
                       SetValue($this->GetIDForIdent($Ident), $Value);
                       $this->Activate();
                     break;
+                    
                     case "Mode":
-                      //Neuen Wert in die Statusvariable schreiben
-                      $AlarmState = GetValue($this->GetIDForIdent("State"));
+                      //Neuen Wert in die Statusvariable schreiben                      
                       
                             switch ($AlarmState)
                             {
@@ -115,15 +118,47 @@
                             }
                       
                     break;
+                    
                     case "Quittierung":
                       //Neuen Wert in die Statusvariable schreiben
-                        SetValue($this->GetIDForIdent($Ident), $Value);
+                        
+                        switch ($AlarmState)
+                        {
+                            case false:
+                                switch ($AlarmQuittierung)
+                                {
+                                    case 0:
+                                        SetValue($this->GetIDForIdent("LastAlert"). "");
+                                    break;
+                                    
+                                    case 1:
+                                        
+                                    break;
+                                    
+                                    case 2:
+                                        
+                                    break;
+                                    
+                                    case 3:
+                                        
+                                    break;
+                                }
+                                SetValue($this->GetIDForIdent($Ident), $Value);
+                                // Platzhalter für Quittierfunktion
+                                break;
+                                
+                            default:
+                                echo "Alarm deaktivieren";
+                            break;
+                        }
                     break;
+                    
                     case "OldPassword":
                         //Neuen Wert in die Statusvariable schreiben
                         SetValue($this->GetIDForIdent($Ident), $Value);
                         $this->NewPassword();
                     break;
+                    
                     case "NewPassword":
                         //Neuen Wert in die Statusvariable schreiben
                         SetValue($this->GetIDForIdent($Ident), $Value);
