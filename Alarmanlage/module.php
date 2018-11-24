@@ -167,7 +167,7 @@
            
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
            
-          $AlarmStatus = GetValue($this->GetIDfForIdent("State"));
+          $AlarmStatus = GetValue($this->GetIDForIdent("State"));
                     
           switch($AlarmStatus)
            {
