@@ -159,7 +159,8 @@
             
           } else
             {
-                echo "ACHTUNG: Falsches Passwort und / oder Anlage noch aktiv"; 
+                SetValue($this->GetIDForIdent("OldPassword"), "");
+                echo "ACHTUNG: Falsches Passwort und / oder Anlage noch aktiv";                
             }
           
 
@@ -187,7 +188,7 @@
                                     $InstanzName = IPS_GetName($InstanzID);
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), 'ALARM:', "$InstanzName wurde aktiviert", '', $InstanzID);
-                                    echo "ALARM: $InstanzName wurde aktiviert";
+                                    echo "ALARM: Kontakt wurde aktiviert";
                                 }
                         
                                }
