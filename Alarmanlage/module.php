@@ -166,14 +166,22 @@
           foreach ($array as $StatusIDstring) 
           {
                     $StatusID = intval($StatusIDstring);
-                    $Status = GetValueBoolean($StatusID);
+                    // $Status = GetValueBoolean($StatusID);
+                   
+                    echo "$StatusID";
+                    SetValue($this->GetIDforIDent("Contact"), $StatusID);
+                    // echo "$Status"; 
                     
+                    /*
+                     * 
+                     
                     if($Status == true)
                     {
                         echo "$Status Einbruch <br>";                        
                         WFC_PushNotification(IPS_GetParent($Status), 'Warnung', 'Es regnet bald!', '', 0);
                         SetValue($this->GetIDforIdent("ContactName"), IPS_GetParent($Status));
                     }
+                    */
                   
                   
           }
