@@ -28,7 +28,7 @@
             //Progil für Quittierung
             if (!IPS_VariableProfileExists("BRELAG.Quittierung")) {
         			IPS_CreateVariableProfile("BRELAG.Quittierung", 1);
-        			IPS_SetVariableProfileValues("BRELAG.Quittierung", 0, 3, 0);
+        			IPS_SetVariableProfileValues("BRELAG.Quittierung", 0, 4, 0);
         			IPS_SetVariableProfileIcon("BRELAG.Quittierung", "IPS");
         			IPS_SetVariableProfileAssociation("BRELAG.Quittierung", 0, "Alarmmeldung", "", -1);
         			IPS_SetVariableProfileAssociation("BRELAG.Quittierung", 1, "Sabotage", "", -1);
