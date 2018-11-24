@@ -172,7 +172,7 @@
                     if($Status == true)
                     {
                         echo "$Status Einbruch <br>";
-                        SetValue($this->GetIDforIdent("Contact"), $Status);
+                        SetValue($this->GetIDforIdent("TestString"), $Status);
                     }
                     
                   
