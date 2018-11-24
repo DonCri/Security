@@ -165,7 +165,7 @@
           
           foreach ($array as $StatusIDstring) 
           {
-                    $StatusID = intval($StatusIDstring);
+                    $StatusID = $StatusIDstring;
                     // $Status = GetValueBoolean($StatusID);
                    
                     echo "$StatusID";
