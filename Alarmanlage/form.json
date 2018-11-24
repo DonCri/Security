@@ -4,29 +4,29 @@
   [
   	{ "type": "Label", "caption": "WebFront"},
   	{ "type": "SelectInstance", "name": "WebFrontName", "caption": "Wird füf Pushnachrichten auf Mobilgeräte benötigt" },
-    {
-      "type": "List",
+    { "type": "List",
       "name": "Supplement",
       "caption": "Supplement",
       "rowCount": 10,
       "add": true,
       "delete": true,
       "sort": {
-        "column": "ID",
-        "direction": "ascending"
-      },
+        		"column": "ID",
+        		"direction": "ascending"
+     			},
       "columns": [{
-          "name": "ID",
-          "label": "ID",
-          "width": "620px",
-          "add": 0,
-          "edit": {
-            "type": "SelectVariable"
-          }
-        }],
+          			"name": "ID",
+          			"label": "ID",
+          			"width": "620px",
+          			"add": 0,
+          			"edit": {
+            				"type": "SelectVariable"
+          					} 
+					}],
       "values": [
       ]
     },
+    
     {"type": "ValidationTextBox", "name": "PushTitel", "caption": "Anzuzeigender Titel"},
     {"type": "ValidationTextBox", "name": "PushText", "caption": "Anzuzeigender Text"},
     {"type": "Select", "name": "AlertSound", "caption": "Wählbare Töne", "options": [ 
@@ -50,6 +50,7 @@
     																				{"caption": "space", "value": "space" },
     																				{"caption": "trickling", "value": "trickling" },
     																				{"caption": "turn", "value": "turn" } ] }
+	
   ]
   
 }

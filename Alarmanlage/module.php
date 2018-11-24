@@ -207,12 +207,10 @@
                                 }
                                
                             }
-                          
-                    break;   
+                    break;
                     
-                    case 1: // Gong Modus
-                  
-                    break;                    
+                    default:
+                    break;
                   
                     } 
                     
