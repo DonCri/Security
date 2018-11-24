@@ -172,7 +172,8 @@
                     if($Status == true)
                     {
                         echo "$Status Einbruch <br>";
-                        SetValue($this->GetIDforIdent("TestString"), $Status);
+                        $InstanzName = IPS_GetParent($Status);
+                        SetValue($this->GetIDforIdent("TestString"), $InstanzName);
                     }
                     
                   
