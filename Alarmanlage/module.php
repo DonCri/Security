@@ -80,7 +80,7 @@
             $this->RegisterPropertyInteger("WebFrontName", 0); // Integer Wert für WebFront Auswahl. Wird für die Push-Nachrichten benötigt
             $this->RegisterPropertyString("PushTitel", ""); // Titel welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("PushText", ""); // Test welches in der Pusch-Nachricht angezeigt werden soll
-            $this->RegisterPropertyString("AlertSound"); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon)
+            $this->RegisterPropertyString("AlertSound", ""); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon)
 
 
             // Test Variablen
