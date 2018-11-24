@@ -80,6 +80,7 @@
             $this->RegisterPropertyInteger("WebFrontName", 0); // Integer Wert für WebFront Auswahl. Wird für die Push-Nachrichten benötigt
             $this->RegisterPropertyString("PushTitel", ""); // Titel welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("PushText", ""); // Test welches in der Pusch-Nachricht angezeigt werden soll
+            $this->RegisterPropertyString("AlertSound"); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon)
 
 
             // Test Variablen
@@ -178,6 +179,7 @@
           $AlarmStatus = GetValue($this->GetIDForIdent("State"));
           $Titel = $this->ReadPropertyString("PushTitel");
           $Text = $this->ReadPropertyString("PushText");
+          $AlertSound = $this->ReadPropertyString("AlertSound");
           
           
           /* switch($AlarmModus)
@@ -207,7 +209,7 @@
                                 {                             
                                     
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
-                                    WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text", '', $InstanzID);
+                                    WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text", "$AlertSound", $InstanzID);
                                     WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text");
                                     
                                 }
