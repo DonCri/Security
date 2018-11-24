@@ -186,7 +186,8 @@
                                     $InstanzID = IPS_GetParent($StatusID);
                                     $InstanzName = IPS_GetName($InstanzID);
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
-                                    WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), 'Alarm:', "$InstanzName wurde geöffnet", '', $InstanzID);
+                                    WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), 'ALARM:', "$InstanzName wurde aktiviert", '', $InstanzID);
+                                    echo "ALARM: $InstanzName wurde aktiviert";
                                 }
                         
                                }
