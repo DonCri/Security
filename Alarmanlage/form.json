@@ -49,9 +49,8 @@
     																				{"caption": "siren", "value": "siren" },
     																				{"caption": "space", "value": "space" },
     																				{"caption": "trickling", "value": "trickling" },
-    																				{"caption": "turn", "value": "turn" } ] },
-	{ "type": "ValidationTextBox", "name": "UpdateTime", "caption": "Intervall in Millisekunden" }
-	
+    																				{"caption": "turn", "value": "turn" } ] }
+    																				
   ]
   
 }
