@@ -172,8 +172,9 @@
           {
                     $StatusID = implode($StatusIDstring);
                     $Status = GetValue($StatusID);          
-                  
-                    switch($this->GetIDForIdent("State"))
+                    $AlarmStatus = GetValue($this->GetIDfForIdent("State"));
+                    
+                    switch($AlarmStatus)
                     {
                         case true:
                             if($Status == true)
