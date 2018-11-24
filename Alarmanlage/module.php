@@ -75,7 +75,7 @@
             $this->RegisterVariableString("TestString", "TestString", "", "0");
             $this->EnableAction("TestString");
             
-            $this->RegisterVariableString("ContactName", "Magnetkontakt Name", "", "-");
+            $this->RegisterVariableString("Contact", "Magnetkontant Name", "", "0");
             
             $this->RegisterVariableBoolean("TestBoolean", "TestBoolean", "", "0");
             $this->EnableAction("TestBoolean");
