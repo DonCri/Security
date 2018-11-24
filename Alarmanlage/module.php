@@ -126,9 +126,8 @@
         */
         public function Activate() {
             $Password = GetValue($this->GetIDForIdent("Password"));
-            $NewPassword = GetValue($this->GetIDForIdent("NewPassword"));
+            $currentPassword = GetValue($this->GetIDForIdent("NewPassword"));
             $State = GetValue($this->GetIDForIdent("State"));
-            $currentPassword = "";
 
 
             if($Password == $currentPassword && $State == false)
@@ -158,7 +157,10 @@
             IPS_Sleep(15000);
             IPS_SetHidden($this->GetIDForIdent("NewPassword"), true);
             
-          }
+          } else
+            {
+                echo "ACHTUNG: Falsches Passwort und / oder Anlage noch aktiv"; 
+            }
           
 
         }
