@@ -50,6 +50,9 @@
             // Stringvariable für Passwort Eingabe um Anlage scharf bzw. unschaf zu schalten, ist aktiv!
             $this->RegisterVariableString("Password", "Passwort Eingabe", "", "1");
             $this->EnableAction("Password");
+            
+            // Stringvariable für Anzeige eines Alarms (Zeigt nur der letzte Wert vom Array
+            $this->RegisterVariableString("Contact", "Magnetkontant Name", "", "0");            
 
             // Integervariable für Auswahl der Modi, ist aktiv!
             $this->RegisterVariableInteger("Mode", "Modus", "BRELAG.AlarmModus", "2");
@@ -69,13 +72,15 @@
             // Eigenschaften für Formular
             $this->RegisterPropertyString("Supplement", "[]");
             $this->RegisterPropertyString("ID", "[]");
+            
+            $this->RegisterPropertyString("WebFrontName", "");
 
 
             // Test Variable
             $this->RegisterVariableString("TestString", "TestString", "", "0");
             $this->EnableAction("TestString");
             
-            $this->RegisterVariableString("Contact", "Magnetkontant Name", "", "0");
+            
             
             $this->RegisterVariableBoolean("TestBoolean", "TestBoolean", "", "0");
             $this->EnableAction("TestBoolean");
@@ -175,15 +180,13 @@
                         $InstanzID = IPS_GetParent($StatusID);
                         $InstanzName = IPS_GetName($InstanzID);
                         SetValue($this->GetIDforIdent("TestString"), $InstanzName);
+                        WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), 'Alarm:', "$InstanzName wurde geöffnet", '', 0);
                     }
                     
                   
                   
           }
-          
-          
-          
-            SetValue($this->GetIDForIdent("TestBoolean"), GetValue(implode($array[0])) );
+         
             
         }
         
