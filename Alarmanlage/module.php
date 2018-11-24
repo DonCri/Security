@@ -180,7 +180,7 @@
                         $InstanzID = IPS_GetParent($StatusID);
                         $InstanzName = IPS_GetName($InstanzID);
                         SetValue($this->GetIDforIdent("TestString"), $InstanzName);
-                        WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), 'Alarm:', "$InstanzName wurde geöffnet", '', 0);
+                        WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), 'Alarm:', "$InstanzName wurde geöffnet", '', $InstanzID);
                     }
                     
                   
