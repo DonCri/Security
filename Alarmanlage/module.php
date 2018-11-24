@@ -51,7 +51,7 @@
             $this->RegisterPropertyString("PushTitel", ""); // Titel welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("PushText", ""); // Test welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("AlertSound", ""); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon)
-            $this->RegisterPropertyInteger("UpdateTime". 15000); // Intervall des Status Check in ms
+            $this->RegisterPropertyInteger("UpdateTime", 15000); // Intervall des Status Check in ms
             
             // Boolean für Statusanzeige der Alarmanlage, ist inaktiv!
             $this->RegisterVariableBoolean("State", "Status", "BRELAG.AlarmStatus", "0");
