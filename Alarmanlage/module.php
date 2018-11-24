@@ -163,12 +163,9 @@
           
           foreach ($array as $StatusID) 
           {
-              $State = intval($StatusID);
+ 
+                  echo "$StatusID Einbruch <br>";
               
-              if($State == true)
-              {
-                  echo "Einbruch";
-              }
           }
           
           
