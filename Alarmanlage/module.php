@@ -171,8 +171,7 @@
  
                     if($Status == true)
                     {
-                        echo "$Status Einbruch <br>";                        
-                        WFC_PushNotification(IPS_GetParent($Status), 'Warnung', 'Es regnet bald!', '', 0);
+                        echo "$Status Einbruch <br>";
                         SetValue($this->GetIDforIdent("ContactName"), IPS_GetParent($Status));
                     }
                     
