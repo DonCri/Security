@@ -75,7 +75,7 @@
             $this->RegisterVariableString("TestString", "TestString", "", "0");
             $this->EnableAction("TestString");
             
-            $this->RegisterVariableString("ContactName", "Magnetkontakt Name", "", "");
+            $this->RegisterVariableString("ContactName", "Magnetkontakt Name", "", "-");
             
             $this->RegisterVariableBoolean("TestBoolean", "TestBoolean", "", "0");
             $this->EnableAction("TestBoolean");
@@ -171,6 +171,7 @@
                     {
                         echo "$Status Einbruch <br>";                        
                         WFC_PushNotification(IPS_GetParent($Status), 'Warnung', 'Es regnet bald!', '', 0);
+                        SetValue($this->GetIDforIdent("ContactName"), IPS_GetParent($Status));
                     }
                   
                   
