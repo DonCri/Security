@@ -161,10 +161,10 @@
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
            
           
-          foreach ($array as implode($StatusID)) 
+          foreach ($array as $StatusID) 
           {
- 
-                  echo "$StatusID Einbruch <br>";
+                    $Status = implode($StatusID);
+                  echo "$Status Einbruch <br>";
               
           }
           
