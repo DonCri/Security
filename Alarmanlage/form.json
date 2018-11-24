@@ -25,6 +25,8 @@
         }],
       "values": [
       ]
-    }
+    },
+    {"type": "ValidationTextBox", "name": "PushTitel", "caption": "Anzuzeigender Titel"},
+    {"type": "ValidationTextBox", "name": "PushText", "caption": "Anzuzeigender Text"}
   ]
 }

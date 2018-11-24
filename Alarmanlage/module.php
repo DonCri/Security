@@ -76,10 +76,10 @@
             IPS_SetHidden($this->GetIDForIdent("NewPassword"), true);
 
             // Eigenschaften für Formular
-            $this->RegisterPropertyString("Supplement", "[]");
-            $this->RegisterPropertyString("ID", "[]");
-            
-            $this->RegisterPropertyInteger("WebFrontName", 0);
+            $this->RegisterPropertyString("Supplement", "[]"); // Liste für boolean Variablen (z.B. Magnetkontakt -> Status)
+            $this->RegisterPropertyInteger("WebFrontName", 0); // Integer Wert für WebFront Auswahl. Wird für die Push-Nachrichten benötigt
+            $this->RegisterPropertyString("PushTitel", "-"); // Titel welches in der Pusch-Nachricht angezeigt werden soll
+            $this->RegisterPropertyString("PushText", "-"); // Test welches in der Pusch-Nachricht angezeigt werden soll
 
 
             // Test Variablen
@@ -176,8 +176,9 @@
           
           
           $AlarmStatus = GetValue($this->GetIDForIdent("State"));
-          $InstanzID = IPS_GetParent($StatusID);
-          $InstanzName = IPS_GetName($InstanzID);
+          $Titel = $this->ReadPropertyString("PushTitel");
+          $Text = $this->ReadPropertyString("PushText");
+          
           
           /* switch($AlarmModus)
           {
@@ -203,9 +204,11 @@
                                 {
                                     $StatusID = implode($StatusIDstring);
                                     $Status = GetValue($StatusID);
+                                    $InstanzID = IPS_GetParent($StatusID);
+                                    $InstanzName = IPS_GetName($InstanzID);                                   
                                     echo "$StatusID Einbruch <br>";
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
-                                    WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), 'ALARM:', "$InstanzName wurde aktiviert", '', $InstanzID);
+                                    WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text", '', $InstanzID);
                                     
                                 }
                         
