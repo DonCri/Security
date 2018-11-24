@@ -2,7 +2,7 @@
   "elements":
   [
   	{ "type": "Label", "caption": "WebFront"},
-  	{ "type": "SelectInstance", "name": "WebFrontName", "caption": "Target" },
+  	{ "type": "SelectInstance", "name": "WebFrontName", "caption": "Wird füf Pushnachrichten auf Mobilgeräte benötigt" },
     {
       "type": "List",
       "name": "Supplement",

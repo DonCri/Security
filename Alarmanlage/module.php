@@ -173,15 +173,20 @@
                     $StatusID = implode($StatusIDstring);
                     $Status = GetValue($StatusID);          
                   
- 
-                    if($Status == true)
+                    switch($this->GetIDForIdent("State"))
                     {
-                        echo "$StatusID Einbruch <br>";
-                        $InstanzID = IPS_GetParent($StatusID);
-                        $InstanzName = IPS_GetName($InstanzID);
-                        SetValue($this->GetIDforIdent("TestString"), $InstanzName);
-                        WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), 'Alarm:', "$InstanzName wurde geöffnet", '', $InstanzID);
+                        case true:
+                            if($Status == true)
+                                {
+                                    echo "$StatusID Einbruch <br>";
+                                    $InstanzID = IPS_GetParent($StatusID);
+                                    $InstanzName = IPS_GetName($InstanzID);
+                                    SetValue($this->GetIDforIdent("TestString"), $InstanzName);
+                                    WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), 'Alarm:', "$InstanzName wurde geöffnet", '', $InstanzID);
+                                }
+                        break;
                     }
+                    
                     
                   
                   
