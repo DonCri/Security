@@ -101,7 +101,7 @@
                     break;
                     case "Mode":
                       //Neuen Wert in die Statusvariable schreiben
-                      $Modus = GetValue($this->GetIDForIdent("Mode"));
+                      $AlarmState = GetValue($this->GetIDForIdent("State"));
                       
                             switch ($Modus)
                             {
