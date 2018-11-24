@@ -50,7 +50,7 @@
     																				{"caption": "space", "value": "space" },
     																				{"caption": "trickling", "value": "trickling" },
     																				{"caption": "turn", "value": "turn" } ] },
-	{ "tyoe": "ValidationTextBox", "name": "UpdateTime", "caption": "Intervall in Millisekunden" }
+	{ "type": "ValidationTextBox", "name": "UpdateTime", "caption": "Intervall in Millisekunden" }
 	
   ]
   
