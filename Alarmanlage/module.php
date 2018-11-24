@@ -73,7 +73,7 @@
             $this->RegisterPropertyString("Supplement", "[]");
             $this->RegisterPropertyString("ID", "[]");
             
-            $this->RegisterPropertyInteger("WebFrontName", "");
+            $this->RegisterPropertyInteger("WebFrontName", 0);
 
 
             // Test Variable
