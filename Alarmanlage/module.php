@@ -103,7 +103,7 @@
                       //Neuen Wert in die Statusvariable schreiben
                       $AlarmState = GetValue($this->GetIDForIdent("State"));
                       
-                            switch ($Modus)
+                            switch ($AlarmState)
                             {
                                 case false:
                                    SetValue($this->GetIDForIdent($Ident), $Value);
