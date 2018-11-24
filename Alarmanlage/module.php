@@ -173,8 +173,7 @@
         public function StateCheck() {
            
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
-          $StatusID = implode($StatusIDstring);
-          $Status = GetValue($StatusID);
+          
           
           $AlarmStatus = GetValue($this->GetIDForIdent("State"));
           $InstanzID = IPS_GetParent($StatusID);
@@ -202,7 +201,8 @@
                     
                             if($Status == true)
                                 {
-                                    
+                                    $StatusID = implode($StatusIDstring);
+                                    $Status = GetValue($StatusID);
                                     echo "$StatusID Einbruch <br>";
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), 'ALARM:', "$InstanzName wurde aktiviert", '', $InstanzID);
