@@ -1,8 +1,8 @@
 {
   "elements":
   [
-  	{ "type": "Label", "caption": "WebFront Name"},
-  	{ "type": "SelectInstance", "name": "PropertyInstanceID", "caption": "Target" },
+  	{ "type": "Label", "caption": "WebFront"},
+  	{ "type": "ValidationTextBox", "name": "WebFrontID", "caption": "ID vom WebFront eingeben" },
     {
       "type": "List",
       "name": "Supplement",
