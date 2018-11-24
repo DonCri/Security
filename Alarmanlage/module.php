@@ -138,6 +138,10 @@
               {
                 SetValue($this->GetIDForIdent("State"), false);
                 SetValue($this->GetIDForIdent("Password"), "");
+              } elseif ($Password != $currentPassword)
+              {
+                  SetValue($this->GetIDForIdent("Password"), "");
+                  echo "Falsches Passwort, versuch es nochmals";
               }
               
         }
