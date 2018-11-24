@@ -175,31 +175,23 @@
            
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
           
-          
+          $AlarmModus = GetValue($this->GetIDForIdent("Mode"));
           $AlarmStatus = GetValue($this->GetIDForIdent("State"));
           $Titel = $this->ReadPropertyString("PushTitel");
           $Text = $this->ReadPropertyString("PushText");
           $AlertSound = $this->ReadPropertyString("AlertSound");
           
           
-          /* switch($AlarmModus)
-          {
-              case 0: // Normal Modus
-              
-              break; 
-              
-              case 1: // Gong Modus
-                  
-              break;
-          } */
-          
-          
           switch($AlarmStatus)
-           {
-               case true:
+          {
+              case true: // Alarm eingeschaltet
+                  
+                switch($AlarmModus)
+                    { 
+                    case 0: // Normaler Modus
                    
-                    foreach ($array as $StatusIDstring) 
-                        {
+                        foreach ($array as $StatusIDstring) 
+                            {
                             $StatusID = implode($StatusIDstring);
                             $Status = GetValue($StatusID);
                             $InstanzID = IPS_GetParent($StatusID);
@@ -214,11 +206,21 @@
                                     
                                 }
                                
-                          }
+                            }
                           
-               break;                       
+                    break;   
+                    
+                    case 1: // Gong Modus
                   
-            } 
+                    break;                    
+                  
+                    } 
+                    
+              break;  
+          }
+          
+          
+          
          
             
         }
