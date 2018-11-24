@@ -51,7 +51,7 @@
             $this->RegisterVariableString("LastAlert", "Letzter Alarm", "", "0"); 
             
             // Setzt einen Timer für den Status check der Magnetkontakt Variablen
-            $this->RegisterTimer("StatusCheck", $this->ReadProperty("UpdateTime"), 'MW_StateCheck($_IPS[\'TARGET\']);');
+            $this->RegisterTimer("StatusCheck", $this->ReadPropertyInteger("UpdateTime"), 'MW_StateCheck($_IPS[\'TARGET\']);');
 
             // Stringvariable für Passwort Eingabe um Anlage scharf bzw. unschaf zu schalten, ist aktiv!
             $this->RegisterVariableString("Password", "Passwort Eingabe", "", "1");
