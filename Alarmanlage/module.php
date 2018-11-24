@@ -128,7 +128,7 @@
                                 switch ($AlarmQuittierung)
                                 {
                                     case 0:
-                                        SetValue($this->GetIDForIdent("LastAlert"). "");
+                                        SetValue($this->GetIDForIdent("LastAlert"), "");
                                     break;
                                     
                                     case 1:
