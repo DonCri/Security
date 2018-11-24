@@ -101,7 +101,15 @@
                     break;
                     case "Mode":
                       //Neuen Wert in die Statusvariable schreiben
-                      SetValue($this->GetIDForIdent($Ident), $Value);
+                      $Modus = GetValue($this->GetIDForIdent("Mode"));
+                      
+                            switch ($Modus)
+                            {
+                                case false:
+                                   SetValue($this->GetIDForIdent($Ident), $Value);
+                                break;
+                            }
+                      
                     break;
                     case "Quittierung":
                       //Neuen Wert in die Statusvariable schreiben
@@ -127,6 +135,7 @@
         * ABC_MeineErsteEigeneFunktion($id);
         *
         */
+      
         public function Activate() {
             $Password = GetValue($this->GetIDForIdent("Password"));
             $currentPassword = GetValue($this->GetIDForIdent("NewPassword"));
@@ -215,10 +224,10 @@
                     
               break;  
           }
-          
-          
-          
-         
+   
+        }
+        
+        public function AlarmModus() {
             
         }
         
