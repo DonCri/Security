@@ -173,26 +173,40 @@
         public function StateCheck() {
            
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
-           
+          $StatusID = implode($StatusIDstring);
+          $Status = GetValue($StatusID);
+          
           $AlarmStatus = GetValue($this->GetIDForIdent("State"));
-                    
+          $InstanzID = IPS_GetParent($StatusID);
+          $InstanzName = IPS_GetName($InstanzID);
+          
+          /* switch($AlarmModus)
+          {
+              case 0: // Normal Modus
+              
+              break; 
+              
+              case 1: // Gong Modus
+                  
+              break;
+          } */
+          
+          
           switch($AlarmStatus)
            {
                case true:
                    
                     foreach ($array as $StatusIDstring) 
                         {
-                            $StatusID = implode($StatusIDstring);
-                            $Status = GetValue($StatusID);          
+                                    
                     
                             if($Status == true)
                                 {
+                                    
                                     echo "$StatusID Einbruch <br>";
-                                    $InstanzID = IPS_GetParent($StatusID);
-                                    $InstanzName = IPS_GetName($InstanzID);
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), 'ALARM:', "$InstanzName wurde aktiviert", '', $InstanzID);
-                                    echo "ALARM: Kontakt wurde aktiviert";
+                                    
                                 }
                         
                                }
