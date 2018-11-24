@@ -172,7 +172,7 @@
                     if($Status == true)
                     {
                         echo "$Status Einbruch <br>";
-                        SetValue($this->GetIDforIdent("Contact"), IPS_GetParent($Status));
+                        SetValue($this->GetIDforIdent("Contact"), $Status);
                     }
                     
                   
