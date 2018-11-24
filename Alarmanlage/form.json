@@ -1,6 +1,8 @@
 {
   "elements":
   [
+  	{ "type": "Label", "caption": "WebFront Name"},
+  	{ "type": "SelectInstance", "name": "PropertyInstanceID", "caption": "Target" },
     {
       "type": "List",
       "name": "Supplement",
