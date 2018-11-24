@@ -108,6 +108,10 @@
                                 case false:
                                    SetValue($this->GetIDForIdent($Ident), $Value);
                                 break;
+                                
+                                default:
+                                    echo "Alarm deaktivieren";
+                                break;
                             }
                       
                     break;
