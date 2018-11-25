@@ -59,7 +59,8 @@
             $this->RegisterVariableBoolean("State", "Status", "BRELAG.AlarmStatus", "0");
             
             // Zeigt der Letzte Alarm im Array (Zeigt nur der letzte Wert vom Array)
-            $this->RegisterVariableString("LastAlert", "Letzter Alarm", "", "0"); 
+            $this->RegisterVariableString("LastAlert", "Letzter Alarm", "", "0");
+            
             
             // Setzt einen Timer für den Status check der Magnetkontakt Variablen
             $this->RegisterTimer("StatusCheck", $this->UpdateTime, 'MW_StateCheck($_IPS[\'TARGET\']);');
@@ -77,7 +78,7 @@
             $this->EnableAction("Quittierung");
 
             // Stringvariable für ändern des Passworts, Variable "Neues Passwort" verborgen aber beide aktiv!
-            $this->RegisterVariableString("OldPassword", "Passwort ändern", "", "4");
+            $this->RegisterVariableString("OldPassword", "Passwort ändern", "aktuelles Password eingeben", "4");
             $this->EnableAction("OldPassword");
             $this->RegisterVariableString("NewPassword", "Neues Passwort", "", "5");
             $this->EnableAction("NewPassword");
