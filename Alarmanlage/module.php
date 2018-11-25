@@ -59,7 +59,7 @@
             $this->RegisterVariableBoolean("State", "Status", "BRELAG.AlarmStatus", "0");
             
             // Zeigt der Letzte Alarm im Array (Zeigt nur der letzte Wert vom Array)
-            $this->RegisterVariableString("LastAlert", "Letzter Alarm", "~TextBox", "0"); 
+            $this->RegisterVariableString("LastAlert", "Letzter Alarm", "", "0"); 
             
             // Setzt einen Timer für den Status check der Magnetkontakt Variablen
             $this->RegisterTimer("StatusCheck", $this->UpdateTime, 'MW_StateCheck($_IPS[\'TARGET\']);');
