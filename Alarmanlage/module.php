@@ -257,7 +257,6 @@
                             if($Status == true)
                                 {    
                                     $arrName = array($InstanzName);
-                                    $arrName[] = $InstanzName;
                                     
                                     foreach ($arrName as $LetzteAlarme)
                                     {
