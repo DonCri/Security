@@ -48,18 +48,15 @@
             // Boolean für Statusanzeige der Alarmanlage, ist inaktiv!
             $this->RegisterVariableBoolean("State", "Status", "BRELAG.AlarmStatus", "0");
             
-            // Zeigt der Letzte Alarm im Array
-            $this->RegisterVariableString("LastAlert", "Letzter Alarm", "", "0"); 
+            // Zeigt der Letzte Alarm im Array (Zeigt nur der letzte Wert vom Array)
+            $this->RegisterVariableString("LastAlert", "Letzter Alarm", "~TextBox", "0"); 
             
             // Setzt einen Timer für den Status check der Magnetkontakt Variablen
             $this->RegisterTimer("StatusCheck", 15000, 'MW_StateCheck($_IPS[\'TARGET\']);');
 
             // Stringvariable für Passwort Eingabe um Anlage scharf bzw. unschaf zu schalten, ist aktiv!
             $this->RegisterVariableString("Password", "Passwort Eingabe", "", "1");
-            $this->EnableAction("Password");
-            
-            // Stringvariable für Anzeige eines Alarms (Zeigt nur der letzte Wert vom Array
-            $this->RegisterVariableString("Contact", "Magnetkontant Name", "", "0");            
+            $this->EnableAction("Password");           
 
             // Integervariable für Auswahl der Modi, ist aktiv!
             $this->RegisterVariableInteger("Mode", "Modus", "BRELAG.AlarmModus", "2");
@@ -166,14 +163,6 @@
                     }
 
       }
-
-        /**
-        * Die folgenden Funktionen stehen automatisch zur Verfügung, wenn das Modul über die "Module Control" eingefügt wurden.
-        * Die Funktionen werden, mit dem selbst eingerichteten Prefix, in PHP und JSON-RPC wiefolgt zur Verfügung gestellt:
-        *
-        * ABC_MeineErsteEigeneFunktion($id);
-        *
-        */
       
         public function Activate() {
             $Password = GetValue($this->GetIDForIdent("Password"));
@@ -197,7 +186,7 @@
               
         }
         
-
+        
         public function NewPassword() {
 
           $Password = GetValue($this->GetIDForIdent("OldPassword"));
@@ -221,6 +210,7 @@
 
         }
 
+       
         public function StateCheck() {
            
           $array = json_decode($this->ReadPropertyString("Supplement"), true);
@@ -266,7 +256,8 @@
    
         }
         
-        public function AlarmModus() {
+        
+        public function AlarmQuittierung() {
             
         }
         
