@@ -3,7 +3,7 @@
     class Alarmanlage extends IPSModule {
         
         
-        public $UpdateTime = 1000;
+        public $UpdateTime = 15000;
         
         
         // Der Konstruktor des Moduls
@@ -113,11 +113,11 @@
                                     switch($Value)
                                     {
                                         case 0:
-                                            SetValue($this->UpdateTime, 15000);
+                                            $this->UpdateTime = 15000;
                                         break;
                                         
                                         case 1:
-                                            SetValue($this->UpdateTime, 1000);
+                                            $this->UpdateTime = 1000;
                                         break;
                                     }
                                 break;
