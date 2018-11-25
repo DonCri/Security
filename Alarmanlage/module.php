@@ -277,7 +277,7 @@
                             if($Status == true)
                             {
                                 $arr = explode('', $InstanzName);
-                                SetValue($this->GetIDforIdent("LastAlert"), $arr[]);
+                                SetValue($this->GetIDforIdent("LastAlert"), var_dump($arr));
                                 WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text", "$AlertSound", $InstanzID);
                                 WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text");
                                 
