@@ -121,13 +121,15 @@
                                             $this->UpdateTime = 1000;
                                         break;
                                     }
+                                    SetValue($this->GetIDForIdent($Ident), $Value);
                                 break;
                                 
                                 default:
                                     echo "Alarm deaktivieren";
                                 break;
+                                
                             }
-                            SetValue($this->GetIDForIdent($Ident), $Value);
+                            
                       
                     break;
                     
