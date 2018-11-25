@@ -1,7 +1,11 @@
 <?
     // Klassendefinition
     class Alarmanlage extends IPSModule {
-
+        
+        
+        public $UpdateTime = 15000;
+        
+        
         // Der Konstruktor des Moduls
         // Überschreibt den Standard Kontruktor von IPS
         public function __construct($InstanceID) {
@@ -10,7 +14,7 @@
 
             // Selbsterstellter Code
         }
-
+        
         // Überschreibt die interne IPS_Create($id) Funktion
         public function Create() {
             // Diese Zeile nicht löschen.
@@ -49,10 +53,8 @@
             $this->RegisterPropertyInteger("WebFrontName", 0); // Integer Wert für WebFront Auswahl. Wird für die Push-Nachrichten benötigt
             $this->RegisterPropertyString("PushTitel", ""); // Titel welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("PushText", ""); // Test welches in der Pusch-Nachricht angezeigt werden soll
-            $this->RegisterPropertyString("AlertSound", ""); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon)
-            $this->RegisterPropertyInteger("UpdateTime", 15000); // Intervall Zeit für Status Check
-            
-            
+            $this->RegisterPropertyString("AlertSound", ""); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon
+             
             // Boolean für Statusanzeige der Alarmanlage, ist inaktiv!
             $this->RegisterVariableBoolean("State", "Status", "BRELAG.AlarmStatus", "0");
             
@@ -60,7 +62,7 @@
             $this->RegisterVariableString("LastAlert", "Letzter Alarm", "~TextBox", "0"); 
             
             // Setzt einen Timer für den Status check der Magnetkontakt Variablen
-            $this->RegisterTimer("StatusCheck", $this->ReadPropertyInteger("UpdateTime"), 'MW_StateCheck($_IPS[\'TARGET\']);');
+            $this->RegisterTimer("StatusCheck", $this->UpdateTime, 'MW_StateCheck($_IPS[\'TARGET\']);');
 
             // Stringvariable für Passwort Eingabe um Anlage scharf bzw. unschaf zu schalten, ist aktiv!
             $this->RegisterVariableString("Password", "Passwort Eingabe", "", "1");
@@ -112,11 +114,11 @@
                                     switch($Value)
                                     {
                                         case 0:
-                                            SetValue($GetIDForIdent("UpdateTime"), 15000);
+                                            SetValue($this->UpdateTime, 15000);
                                         break;
                                         
                                         case 1:
-                                            SetValue($GetIDForIdent("UpdateTime"), 1000);
+                                            SetValue($this->UpdateTime, 1000);
                                         break;
                                     }
                                 break;
