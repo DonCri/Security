@@ -52,7 +52,7 @@
             $this->RegisterVariableString("LastAlert", "Letzter Alarm", "~TextBox", "0"); 
             
             // Setzt einen Timer für den Status check der Magnetkontakt Variablen
-            $this->RegisterTimer("StatusCheck", 15000, 'MW_StateCheck($_IPS[\'TARGET\']);');
+            $this->RegisterTimer("StatusCheck", $this->ReadPropertyInteger("UpdateTime"), 'MW_StateCheck($_IPS[\'TARGET\']);');
 
             // Stringvariable für Passwort Eingabe um Anlage scharf bzw. unschaf zu schalten, ist aktiv!
             $this->RegisterVariableString("Password", "Passwort Eingabe", "", "1");
@@ -79,7 +79,7 @@
             $this->RegisterPropertyString("PushTitel", ""); // Titel welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("PushText", ""); // Test welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("AlertSound", ""); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon)
-
+            $this->RegisterPropertyInteger("UpdateTime", 15000); // Intervall Zeit für Status Check
 
             // Test Variablen
                       
@@ -91,6 +91,7 @@
 
             $AlarmState = GetValue($this->GetIDForIdent("State"));
             $AlarmQuittierung = GetValue($this->GetIDForIdent("Quittierung"));
+            $Modus = GetValue($this->ReadPropertyInteger("UpdateTime"));
             
             
               switch($Ident) {
@@ -106,13 +107,23 @@
                             switch ($AlarmState)
                             {
                                 case false:
-                                   SetValue($this->GetIDForIdent($Ident), $Value);
+                                    switch($Value)
+                                    {
+                                        case 0:
+                                            SetValue($GetIDForIdent("UpdateTime"), 15000);
+                                        break;
+                                        
+                                        case 1:
+                                            SetValue($GetIDForIdent("UpdateTime"), 1000);
+                                        break;
+                                    }
                                 break;
                                 
                                 default:
                                     echo "Alarm deaktivieren";
                                 break;
                             }
+                            SetValue($this->GetIDForIdent($Ident), $Value);
                       
                     break;
                     
@@ -240,7 +251,7 @@
                             if($Status == true)
                                 {                             
                                     
-                                    SetValue($this->GetIDforIdent("LastAlert"), "$InstanzName<br>");
+                                    SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text", "$AlertSound", $InstanzID);
                                     WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text");
                                     
