@@ -78,7 +78,7 @@
             $this->EnableAction("Quittierung");
 
             // Stringvariable für ändern des Passworts, Variable "Neues Passwort" verborgen aber beide aktiv!
-            $this->RegisterVariableString("OldPassword", "Passwort ändern", "aktuelles Password eingeben", "4");
+            $this->RegisterVariableString("OldPassword", "Passwort ändern (aktuelles Password eingeben)", "", "4");
             $this->EnableAction("OldPassword");
             $this->RegisterVariableString("NewPassword", "Neues Passwort", "", "5");
             $this->EnableAction("NewPassword");
