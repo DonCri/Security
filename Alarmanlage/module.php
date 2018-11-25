@@ -95,6 +95,7 @@
 
             $AlarmState = GetValue($this->GetIDForIdent("State"));
             $AlarmQuittierung = GetValue($this->GetIDForIdent("Quittierung"));
+            $Modus = GetValue($this->GetIDForIdent("Mode"));
             
             
               switch($Ident) {
@@ -110,7 +111,7 @@
                             switch ($AlarmState)
                             {
                                 case false:
-                                    switch($Value)
+                                    switch($Modus)
                                     {
                                         case 0:
                                             $this->UpdateTime = 15000;
