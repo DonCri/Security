@@ -262,6 +262,26 @@
                                
                             }
                     break;
+                    
+                    case 1:
+                        foreach ($array as $StatusIDstring)
+                        {
+                            $StatusID = implode($StatusIDstring);
+                            $Status = GetValue($StatusID);
+                            $InstanzID = IPS_GetParent($StatusID);
+                            $InstanzName = IPS_GetName($InstanzID);
+                            
+                            if($Status == true)
+                            {
+                                
+                                SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
+                                WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text", "$AlertSound", $InstanzID);
+                                WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text");
+                                
+                            }
+                            
+                        }
+                    break;
                   
                     } 
                     
