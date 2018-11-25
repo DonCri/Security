@@ -256,7 +256,7 @@
                     
                             if($Status == true)
                                 {    
-                                    $arrName = explode("", $InstanzName);
+                                    $arrName = explode(" ", $InstanzName);
                                     
                                     SetValue($this->GetIDforIdent("LastAlert"), $arrName);
                                     
