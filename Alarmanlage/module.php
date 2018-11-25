@@ -3,7 +3,7 @@
     class Alarmanlage extends IPSModule {
         
         
-        public $UpdateTime = 15000;
+        public $UpdateTime = 1000;
         
         
         // Der Konstruktor des Moduls
