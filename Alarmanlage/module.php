@@ -260,7 +260,7 @@
                                     
                                     foreach($arrName as $LetzteAlarme)
                                     {
-                                        SetValue($this->GetIDforIdent("LastAlert"), var_dump($LetzteAlarme));
+                                        SetValue($this->GetIDforIdent("LastAlert"), $LetzteAlarme);
                                     }
                                     
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text", "$AlertSound", $InstanzID);
