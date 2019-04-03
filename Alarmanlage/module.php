@@ -314,7 +314,8 @@
             
             $ID = json_decode($this->ReadPropertyString("Supplement"));
             foreach ($ID as $state) {
-                    $this->StateCheck(); 
+                    $this->StateCheck();
+                    return;
             }
             
         }
