@@ -229,7 +229,7 @@
        
         public function StateCheck() {
            
-          $array = json_decode($this->ReadPropertyString("Supplement"), true);
+          $array = json_decode($this->ReadPropertyString("Supplement"));
           
           $AlarmModus = GetValue($this->GetIDForIdent("Mode"));
           $AlarmStatus = GetValue($this->GetIDForIdent("State"));
@@ -265,7 +265,7 @@
                     break;
                     
                     case 1:
-                        foreach ($array as $StatusID)
+                        foreach ($array as $StatusID1)
                         {
                             $Status = GetValue($StatusID->ID);
                             $InstanzID = IPS_GetParent($StatusID->ID);
