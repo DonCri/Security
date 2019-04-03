@@ -265,7 +265,7 @@
                     break;
                     
                     case 1:
-                        foreach ($array as $StatusID1)
+                        foreach ($array as $StatusID)
                         {
                             $Status = GetValue($StatusID->ID);
                             $InstanzID = IPS_GetParent($StatusID->ID);
