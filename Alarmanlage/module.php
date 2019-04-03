@@ -314,7 +314,13 @@
             
             $ID = json_decode($this->ReadPropertyString("Supplement"));
             foreach ($ID as $state) {
-                    $this->StateCheck();
+                    $LastUpdate = IPS_GetVariable($state->ID);
+                    $TimeDif = strtotime("now") - $LastUpdate["VariableChanged"];
+                    
+                    if($TimeDif <= 60)
+                    {
+                        $this->StateCheck();
+                    }
                     return;
             }
             
