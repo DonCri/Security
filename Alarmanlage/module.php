@@ -1,10 +1,7 @@
 <?
+		
     // Klassendefinition
     class Alarmanlage extends IPSModule {
-        
-        
-        public $UpdateTime = 15000;
-        
         
         // Der Konstruktor des Moduls
         // Überschreibt den Standard Kontruktor von IPS
@@ -12,11 +9,13 @@
             // Diese Zeile nicht löschen
             parent::__construct($InstanceID);
 
+
             // Selbsterstellter Code
         }
         
         // Überschreibt die interne IPS_Create($id) Funktion
-        public function Create() {
+	public function Create() {
+
             // Diese Zeile nicht löschen.
             parent::Create();
 
@@ -49,21 +48,17 @@
             }
             
             // Eigenschaften für Formular
-            $this->RegisterPropertyString("Supplement", "[]"); // Liste für boolean Variablen (z.B. Magnetkontakt -> Status)
+            $this->RegisterPropertyString("Supplement", "[]"); // Liste für boolean Variablen (z.B. Magnetkontakt -> Status). Können auch andere Variablen sein, solange es sich um Boolsche handelt.
             $this->RegisterPropertyInteger("WebFrontName", 0); // Integer Wert für WebFront Auswahl. Wird für die Push-Nachrichten benötigt
             $this->RegisterPropertyString("PushTitel", ""); // Titel welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("PushText", ""); // Test welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("AlertSound", ""); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon
-             
+            
             // Boolean für Statusanzeige der Alarmanlage, ist inaktiv!
             $this->RegisterVariableBoolean("State", "Status", "BRELAG.AlarmStatus", "0");
             
             // Zeigt der Letzte Alarm im Array (Zeigt nur der letzte Wert vom Array)
             $this->RegisterVariableString("LastAlert", "Letzter Alarm", "", "0");
-            
-            
-            // Setzt einen Timer für den Status check der Magnetkontakt Variablen
-            $this->RegisterTimer("StatusCheck", $this->UpdateTime, 'MW_StateCheck($_IPS[\'TARGET\']);');
 
             // Stringvariable für Passwort Eingabe um Anlage scharf bzw. unschaf zu schalten, ist aktiv!
             $this->RegisterVariableString("Password", "Passwort Eingabe", "", "1");
@@ -92,7 +87,8 @@
 
 
         // Überschreibt die intere IPS_ApplyChanges($id) Funktion
-        public function RequestAction($Ident, $Value) {
+	public function RequestAction($Ident, $Value) {
+
 
             $AlarmState = GetValue($this->GetIDForIdent("State"));
             $AlarmQuittierung = GetValue($this->GetIDForIdent("Quittierung"));
@@ -115,11 +111,11 @@
                                     switch($Modus)
                                     {
                                         case 0:
-                                            $this->UpdateTime = 15000;
+                                            
                                         break;
                                         
                                         case 1:
-                                            $this->UpdateTime = 1000;
+                                            
                                         break;
                                     }
                                     SetValue($this->GetIDForIdent($Ident), $Value);
@@ -182,7 +178,8 @@
 
       }
       
-        public function Activate() {
+	public function Activate() {
+
             $Password = GetValue($this->GetIDForIdent("Password"));
             $currentPassword = GetValue($this->GetIDForIdent("NewPassword"));
             $State = GetValue($this->GetIDForIdent("State"));
@@ -205,7 +202,8 @@
         }
         
         
-        public function NewPassword() {
+	public function NewPassword() {
+
 
           $Password = GetValue($this->GetIDForIdent("OldPassword"));
           $NewPassword = GetValue($this->GetIDForIdent("NewPassword"));
@@ -248,11 +246,10 @@
                     { 
                     case 0: // Normaler Modus
                    
-                        foreach ($array as $StatusIDstring) 
+                        foreach ($array as $StatusID) 
                             {
-                            $StatusID = implode($StatusIDstring);
-                            $Status = GetValue($StatusID);
-                            $InstanzID = IPS_GetParent($StatusID);
+                            $Status = GetValue($StatusID->ID);
+                            $InstanzID = IPS_GetParent($StatusID->ID);
                             $InstanzName = IPS_GetName($InstanzID);        
                     
                             if($Status == true)
@@ -296,6 +293,19 @@
         
         
         public function AlarmQuittierung() {
+            
+        }
+        
+        public function ApplyChanges() {
+            
+            // Diese Zeile nicht löschen
+            parent::ApplyChanges();
+            
+            $StateUpdate = json_decode($this->ReadPropertyString("Supplement"));
+            foreach ($StateUpdate as $IDUpdate) {
+                $this->RegisterMessage($IDUpdate->ID, VM_UPDATE);
+            }
+            
             
         }
         
