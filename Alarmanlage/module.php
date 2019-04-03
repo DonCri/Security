@@ -270,14 +270,17 @@
                             $Status = GetValue($StatusID->ID);
                             $InstanzID = IPS_GetParent($StatusID->ID);
                             $InstanzName = IPS_GetName($InstanzID->ID);
+                            $LastChange = IPS_GetVariable($Status);
+                            $Timedif = strtotime("now") - $LastChange["VariableChanged"];
                             
                             if($Status == true)
                             {
-                                
-                                SetValue($this->GetIDforIdent("LastAlert"), $arrName);
-                                WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text", "$AlertSound", $InstanzID);
-                                WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text");
-                                
+                                if($Timedif <= 60)
+                                {
+                                    SetValue($this->GetIDforIdent("LastAlert"), $arrName);
+                                    WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text", "$AlertSound", $InstanzID);
+                                    WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text");
+                                } 
                             }
                             
                         }
