@@ -265,12 +265,11 @@
                     break;
                     
                     case 1:
-                        foreach ($array as $StatusIDstring)
+                        foreach ($array as $StatusID)
                         {
-                            $StatusID = implode($StatusIDstring);
-                            $Status = GetValue($StatusID);
-                            $InstanzID = IPS_GetParent($StatusID);
-                            $InstanzName = IPS_GetName($InstanzID);
+                            $Status = GetValue($StatusID->ID);
+                            $InstanzID = IPS_GetParent($StatusID->ID);
+                            $InstanzName = IPS_GetName($InstanzID->ID);
                             
                             if($Status == true)
                             {
