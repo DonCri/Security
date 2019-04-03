@@ -308,6 +308,20 @@
             
         }
         
+        public function MessageSink($TimeStamp, $SenderID, $Message, $Data) {
+            
+            $this->SendDebug("MessageSink", "SenderID: ". $SenderID .", Message: ". $Message , 0);
+            
+            $ID = json_decode($this->ReadPropertyString("Supplement"));
+            foreach ($ID as $state) {
+                if($state->ID == true) {
+                    $this->StateCheck();                    
+                    return;
+                }
+            }
+            
+        }
+        
 
     }
 ?>
