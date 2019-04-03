@@ -314,10 +314,7 @@
             
             $ID = json_decode($this->ReadPropertyString("Supplement"));
             foreach ($ID as $state) {
-                if($state->ID == true) {
-                    $this->StateCheck();                    
-                    return;
-                }
+                    $this->StateCheck(); 
             }
             
         }
