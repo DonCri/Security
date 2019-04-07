@@ -251,7 +251,7 @@
                             $Status = GetValue($StatusID->ID);
                             $InstanzID = IPS_GetParent($StatusID->ID);
                             $InstanzName = IPS_GetName($InstanzID);   
-														$VariableInfo = IPS_GetVariable($StatusID);
+														$VariableInfo = $StatusID->ID;
 														$DiffToLastChange = strtotime("now") - $VariableInfo["LastChanged"];
                     
                             if($Status == true && $DiffToLastChange <= 10)
@@ -272,7 +272,7 @@
                             $Status = GetValue($StatusID->ID);
                             $InstanzID = IPS_GetParent($StatusID->ID);
                             $InstanzName = IPS_GetName($InstanzID->ID);
-                            $VariableInfo = IPS_GetVariable($StatusID);
+                            $VariableInfo = $StatusID->ID;
 														$DiffToLastChange = strtotime("now") - $VariableInfo["LastChanged"];
                     
                             if($Status == true && $DiffToLastChange <= 10)
