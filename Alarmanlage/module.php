@@ -69,7 +69,7 @@
             $this->EnableAction("Mode");
 
             // Integervariable für Auswahl der Quittierungen, ist aktiv!
-            $this->RegisterVariableInteger("Quittierung", "Sabotage", "BRELAG.Quittierung", "3");
+            $this->RegisterVariableInteger("Quittierung", "Quittierung", "BRELAG.Quittierung", "3");
             $this->EnableAction("Quittierung");
 
             // Stringvariable für ändern des Passworts, Variable "Neues Passwort" verborgen aber beide aktiv!
