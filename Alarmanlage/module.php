@@ -305,6 +305,7 @@
             // Diese Zeile nicht löschen
             parent::ApplyChanges();
             AC_SetLoggingStatus($this->ReadPropertyInteger("Archiv"), $this->GetIDForIdent("LastAlert"), true);
+            IPS_ApplyChanges($this->ReadPropertyInteger("Archiv"));
             
             $StateUpdate = json_decode($this->ReadPropertyString("Supplement"));
             foreach ($StateUpdate as $IDUpdate) {

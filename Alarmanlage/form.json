@@ -51,10 +51,7 @@
     																				{"caption": "siren", "value": "siren" },
     																				{"caption": "space", "value": "space" },
     																				{"caption": "trickling", "value": "trickling" },
-    																				{"caption": "turn", "value": "turn" } ] },
-	
-	{ "type": "CheckBox", "name": "TimerActiv", "caption": "Status über Timer ermitteln" },
-   	{ "type": "NumberSpinner", "name": "CheckTime", "caption": "Status Check in ms", "suffix": "Sekunden" }
+    																				{"caption": "turn", "value": "turn" } ] }
     																				
   ]
   
