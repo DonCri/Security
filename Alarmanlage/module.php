@@ -254,7 +254,7 @@
 														$VariableInfo = IPS_GetVariable($StatusID);
 														$DiffToLastChange = strtotime("now") - $VariableInfo["LastChanged"];
                     
-                            if($Status == true && $DiffToLastChange >= 10)
+                            if($Status == true && $DiffToLastChange <= 10)
                                 {    
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
                                     
@@ -275,7 +275,7 @@
                             $VariableInfo = IPS_GetVariable($StatusID);
 														$DiffToLastChange = strtotime("now") - $VariableInfo["LastChanged"];
                     
-                            if($Status == true && $DiffToLastChange >= 10)
+                            if($Status == true && $DiffToLastChange <= 10)
                                 {    
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
                                     
