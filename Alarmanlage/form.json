@@ -4,8 +4,6 @@
   [
   	{ "type": "Label", "caption": "WebFront"},
   	{ "type": "SelectInstance", "name": "WebFrontName", "caption": "Wird füf Pushnachrichten auf Mobilgeräte benötigt" },
-  	{ "type": "Label", "caption": "Archiv"},
-  	{ "type": "SelectInstance", "name": "Archiv", "caption": "ID der Archiv Instanz" },
     { "type": "List",
       "name": "Supplement",
       "caption": "Supplement",

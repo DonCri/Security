@@ -54,10 +54,6 @@
             $this->RegisterPropertyString("PushText", ""); // Test welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("AlertSound", ""); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon
             
-            // Archivierung der LastAlert
-            $Archiv = IPS_GetInstanceIDByName("Archiv");
-            $this->RegisterPropertyInteger("Archiv", $Archiv); // Integer WErt für die Auswahl vom Archiv. Wird für die History benötigt.
-            
             // Boolean für Statusanzeige der Alarmanlage, ist inaktiv!
             $this->RegisterVariableBoolean("State", "Status", "BRELAG.AlarmStatus", "0");
             
@@ -307,8 +303,6 @@
             
             // Diese Zeile nicht löschen
             parent::ApplyChanges();
-            AC_SetLoggingStatus($this->ReadPropertyInteger("Archiv"), $this->GetIDForIdent("LastAlert"), true);
-            IPS_ApplyChanges($this->ReadPropertyInteger("Archiv"));
             
             $StateUpdate = json_decode($this->ReadPropertyString("Supplement"));
             foreach ($StateUpdate as $IDUpdate) {
