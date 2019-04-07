@@ -4,6 +4,8 @@
   [
   	{ "type": "Label", "caption": "WebFront"},
   	{ "type": "SelectInstance", "name": "WebFrontName", "caption": "Wird füf Pushnachrichten auf Mobilgeräte benötigt" },
+  	{ "type": "Label", "caption": "Archiv"},
+  	{ "type": "SelectInstance", "name": "Archiv", "caption": "ID der Archiv Instanz" },
     { "type": "List",
       "name": "Supplement",
       "caption": "Supplement",
@@ -49,7 +51,10 @@
     																				{"caption": "siren", "value": "siren" },
     																				{"caption": "space", "value": "space" },
     																				{"caption": "trickling", "value": "trickling" },
-    																				{"caption": "turn", "value": "turn" } ] }
+    																				{"caption": "turn", "value": "turn" } ] },
+	
+	{ "type": "CheckBox", "name": "TimerActiv", "caption": "Status über Timer ermitteln" },
+   	{ "type": "NumberSpinner", "name": "CheckTime", "caption": "Status Check in ms", "suffix": "Sekunden" }
     																				
   ]
   

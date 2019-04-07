@@ -50,6 +50,7 @@
             // Eigenschaften für Formular
             $this->RegisterPropertyString("Supplement", "[]"); // Liste für boolean Variablen (z.B. Magnetkontakt -> Status). Können auch andere Variablen sein, solange es sich um Boolsche handelt.
             $this->RegisterPropertyInteger("WebFrontName", 0); // Integer Wert für WebFront Auswahl. Wird für die Push-Nachrichten benötigt
+            $this->RegisterPropertyInteger("Archiv", 0); // Integer WErt für die Auswahl vom Archiv. Wird für die History benötigt.
             $this->RegisterPropertyString("PushTitel", ""); // Titel welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("PushText", ""); // Test welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("AlertSound", ""); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon
@@ -251,8 +252,8 @@
                             $Status = GetValue($StatusID->ID);
                             $InstanzID = IPS_GetParent($StatusID->ID);
                             $InstanzName = IPS_GetName($InstanzID);   
-														$VariableInfo = IPS_GetVariable($StatusID->ID);
-														$DiffToLastChange = strtotime("now") - $VariableInfo["VariableChanged"];
+							$VariableInfo = IPS_GetVariable($StatusID->ID);
+							$DiffToLastChange = strtotime("now") - $VariableInfo["VariableChanged"];
                     
                             if($Status == true && $DiffToLastChange <= 10)
                                 {    
@@ -273,7 +274,7 @@
                             $InstanzID = IPS_GetParent($StatusID->ID);
                             $InstanzName = IPS_GetName($InstanzID->ID);
                             $VariableInfo = IPS_GetVariable($StatusID->ID);
-														$DiffToLastChange = strtotime("now") - $VariableInfo["VariableChanged"];
+							$DiffToLastChange = strtotime("now") - $VariableInfo["VariableChanged"];
                     
                             if($Status == true && $DiffToLastChange <= 10)
                                 {    
@@ -303,6 +304,7 @@
             
             // Diese Zeile nicht löschen
             parent::ApplyChanges();
+            AC_SetLoggingStatus($this->ReadPropertyInteger("Archiv"), $this->GetIDForIdent("LastAlert"), true);
             
             $StateUpdate = json_decode($this->ReadPropertyString("Supplement"));
             foreach ($StateUpdate as $IDUpdate) {
