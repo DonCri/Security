@@ -250,9 +250,11 @@
                             {
                             $Status = GetValue($StatusID->ID);
                             $InstanzID = IPS_GetParent($StatusID->ID);
-                            $InstanzName = IPS_GetName($InstanzID);        
+                            $InstanzName = IPS_GetName($InstanzID);   
+														$VariableInfo = IPS_GetVariable($StatusID);
+														$DiffToLastChange = strtotime("now") - $VariableInfo["LastChanged"];
                     
-                            if($Status == true)
+                            if($Status == true && $DiffToLastChange >= 10)
                                 {    
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
                                     
@@ -270,18 +272,17 @@
                             $Status = GetValue($StatusID->ID);
                             $InstanzID = IPS_GetParent($StatusID->ID);
                             $InstanzName = IPS_GetName($InstanzID->ID);
-                            $LastChange = IPS_GetVariable($Status);
-                            $Timedif = strtotime("now") - $LastChange["VariableChanged"];
-                            
-                            if($Status == true)
-                            {
-                                if($Timedif <= 60)
-                                {
-                                    SetValue($this->GetIDforIdent("LastAlert"), $arrName);
+                            $VariableInfo = IPS_GetVariable($StatusID);
+														$DiffToLastChange = strtotime("now") - $VariableInfo["LastChanged"];
+                    
+                            if($Status == true && $DiffToLastChange >= 10)
+                                {    
+                                    SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
+                                    
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text", "$AlertSound", $InstanzID);
                                     WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text");
-                                } 
-                            }
+                                    
+                                }
                             
                         }
                     break;
