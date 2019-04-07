@@ -55,7 +55,7 @@
             $this->RegisterPropertyString("AlertSound", ""); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon
             
             // Archivierung der LastAlert
-            $Archiv = IPS_GetInstanceIDByName("Archiv", 0);
+            $Archiv = IPS_GetInstanceIDByName("Archiv");
             $this->RegisterPropertyInteger("Archiv", $Archiv); // Integer WErt für die Auswahl vom Archiv. Wird für die History benötigt.
             
             // Boolean für Statusanzeige der Alarmanlage, ist inaktiv!
