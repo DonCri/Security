@@ -356,7 +356,7 @@
 	    foreach($SabID as $SabCheck) {
 		    switch($SabCheck)
 		    {
-		    	case true:
+		    	case 1:
 				$this->CheckSabotage();
 			break;
 		    }
