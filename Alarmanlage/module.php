@@ -352,6 +352,7 @@
                     return;
 	    }
 
+	    $this->SendDebug("MessageSink", "SenderID: ". $SenderID .", Message: ". $Message , 0);
 	    $SabID = json_decode($this->ReadPropertyString("SabotageID"));
 	    foreach($SabID as $SabCheck) {
 		    switch($SabCheck)
