@@ -333,10 +333,7 @@
                 $this->RegisterMessage($IDUpdate->ID, VM_UPDATE);
 	    }
 
-	    $Sabotage = json_decode($this->ReadPropertyString("SabotageID"));
-	    foreach($Sabotage as $SabotageID) {
-	    	$this->RegisterMessage($SabotageID->ID, VM_UPDATE);
-	    }
+	    
             
             
         }
@@ -352,17 +349,7 @@
                     return;
 	    }
 
-	    $this->SendDebug("MessageSink", "SenderID: ". $SenderID .", Message: ". $Message , 0);
-	    $SabID = json_decode($this->ReadPropertyString("SabotageID"));
-	    foreach($SabID as $SabCheck) {
-		    switch($SabCheck)
-		    {
-		    	case true:
-				$this->CheckSabotage();
-			break;
-		    }
-		return;
-	    }
+	    
             
         }
         
