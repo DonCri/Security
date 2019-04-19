@@ -334,8 +334,8 @@
 	    }
 
 	    $Sabotage = json_decode($this->ReadPropertyString("SabotageID"));
-	    foreach($Sabotage as $SabotageID) {
-	    	$this->RegisterMessage($SabotageID->ID, VM_UPDATE);
+	    foreach($Sabotage as $SabotageAusl) {
+	    	$this->RegisterMessage($SabotageAusl->ID, VM_UPDATE);
 	    }
             
             
