@@ -17,7 +17,8 @@
           		"width": "620px",
           		"add": 0,
          		"edit": { "type": "SelectVariable" } }],
-      "values": []
+      "values": [
+      ]
     },
 
    	{ "type": "Label", "caption": "ID's für Sabotage auslösung" },
@@ -34,7 +35,8 @@
           		"width": "620px",
           		"add": 0,
          		"edit": { "type": "SelectVariable" } }],
-      "values": []
+      "values": [
+      ]
     },
     
     {"type": "ValidationTextBox", "name": "PushTitel", "caption": "Anzuzeigender Titel"},
