@@ -266,7 +266,8 @@
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
                                     
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text", "$AlertSound", $InstanzID);
-                                    WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text");
+				    WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text");
+				    SetValue("MagnetAlarm");
                                     
                                 }
                                
@@ -280,7 +281,7 @@
                             $InstanzID = IPS_GetParent($StatusID->ID);
                             $InstanzName = IPS_GetName($InstanzID->ID);
                             $VariableInfo = IPS_GetVariable($StatusID->ID);
-							$DiffToLastChange = strtotime("now") - $VariableInfo["VariableChanged"];
+			    $DiffToLastChange = strtotime("now") - $VariableInfo["VariableChanged"];
                     
                             if($Status == true && $DiffToLastChange <= 10)
                                 {    
@@ -308,7 +309,7 @@
 			switch($SaboActivate)
 			{
 				case true:
-					SetValue($this->GetIDForIdent("SabotageAlarm"));
+					SetValue($this->GetIDForIdent("SabotageAlarm"), 1);
 				break;
 			}
 		}	
