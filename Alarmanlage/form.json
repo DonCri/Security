@@ -31,7 +31,7 @@
       "sort": {	 "column": "SabotageVariablen",
        		 "direction": "ascending" },
       "columns": [{	"name": "SabotageVariablen",
-          		"label": "SabotageID",
+          		"label": "SabotageVariablen",
           		"width": "620px",
           		"add": 0,
          		"edit": { "type": "SelectVariable" } }],
