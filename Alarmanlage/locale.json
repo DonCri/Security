@@ -2,8 +2,6 @@
     "translations": {
         "de": {
             "ModeOne": "Teilbereich 1",
-            "ModeTwo": "Teilbereich 2",
-            "ModeOneTwo": "Teilbereich 1 + 2",
             "ModeBell": "Gong",
             "Off": "Aus",
             "On": "Ein"
