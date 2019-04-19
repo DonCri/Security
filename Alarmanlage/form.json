@@ -4,7 +4,6 @@
   [
   	{ "type": "Label", "caption": "WebFront"},
   	{ "type": "SelectInstance", "name": "WebFrontName", "caption": "Wird für Pushnachrichten auf Mobilgeräte benötigt" },	
-	{ "type": "Label", "caption": "  " },
 	{ "type": "label", "caption": "ID's für Alarmauslösung" },
     { "type": "List",
       "name": "Supplement",
@@ -29,9 +28,9 @@
       "rowCount": 10,
       "add": true,
       "delete": true,
-      "sort": {	 "column": "ID",
+      "sort": {	 "column": "SabotageVariablen",
        		 "direction": "ascending" },
-      "columns": [{	"name": "ID",
+      "columns": [{	"name": "SabotageVariablen",
           		"label": "ID",
           		"width": "620px",
           		"add": 0,
@@ -63,5 +62,4 @@
     		{"caption": "trickling", "value": "trickling" },
     		{"caption": "turn", "value": "turn" } ] } 
 ]
-
 }
