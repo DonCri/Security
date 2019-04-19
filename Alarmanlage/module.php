@@ -351,16 +351,7 @@
                     return;
 	    }
 
-	    $SabID = json_decode($this->ReadPropertyString("SabotageID"));
-	    foreach($SabID as $SabCheck) {
-		    switch($SabCheck)
-		    {
-		    	case true:
-				$this->CheckSabotage();
-			break;
-		    }
-		return;
-	    }
+	    
             
         }
         
