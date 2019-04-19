@@ -3,7 +3,7 @@
   [
   	{ "type": "Label", "caption": "WebFront"},
   	{ "type": "SelectInstance", "name": "WebFrontName", "caption": "Wird für Pushnachrichten auf Mobilgeräte benötigt" },	
-	{ "type": "label", "caption": "ID's für Alarmauslösung" },
+	{ "type": "Label", "caption": "ID's für Alarmauslösung" },
     { "type": "List",
       "name": "Supplement",
       "caption": "Supplement",
@@ -21,7 +21,23 @@
       ]
     },
 
-
+   	{ "type": "Label", "caption": "ID's für Sabotage auslösung" },
+    { "type": "List",
+      "name": "SabotageID",
+      "caption": "SabotageID",
+      "rowCount": 10,
+      "add": true,
+      "delete": true,
+      "sort": {	 "column": "SabotageVariablen",
+       		 "direction": "ascending" },
+      "columns": [{	"name": "SabotageVariablen",
+          		"label": "SabotageVariablen",
+          		"width": "620px",
+          		"add": 0,
+         		"edit": { "type": "SelectVariable" } }],
+      "values": [
+      ]
+    },
     
     {"type": "ValidationTextBox", "name": "PushTitel", "caption": "Anzuzeigender Titel"},
     {"type": "ValidationTextBox", "name": "PushText", "caption": "Anzuzeigender Text"},
