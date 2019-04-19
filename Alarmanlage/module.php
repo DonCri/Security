@@ -53,6 +53,9 @@
             $this->RegisterPropertyString("PushTitel", ""); // Titel welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("PushText", ""); // Test welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("AlertSound", ""); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon
+	    $this->RegisterPropertyString("SabotageID", "[]"); // Liste für boolean Variablen
+	    
+	    
             
             // Boolean für Statusanzeige der Alarmanlage, ist inaktiv!
             $this->RegisterVariableBoolean("State", "Status", "BRELAG.AlarmStatus", "0");
@@ -78,6 +81,10 @@
             $this->RegisterVariableString("NewPassword", "Neues Passwort", "", "5");
             $this->EnableAction("NewPassword");
             IPS_SetHidden($this->GetIDForIdent("NewPassword"), true);
+
+	    $this->RegisterVariableInteger("MagnetAlarm", "Alarmauslösung", "", "10");
+	    $this->RegisterVariableInteger("SabotageAlarm", "SabotageAlarm", "", "11");
+
 
             
 
@@ -251,8 +258,8 @@
                             $Status = GetValue($StatusID->ID);
                             $InstanzID = IPS_GetParent($StatusID->ID);
                             $InstanzName = IPS_GetName($InstanzID);   
-							$VariableInfo = IPS_GetVariable($StatusID->ID);
-							$DiffToLastChange = strtotime("now") - $VariableInfo["VariableChanged"];
+			    $VariableInfo = IPS_GetVariable($StatusID->ID);
+			    $DiffToLastChange = strtotime("now") - $VariableInfo["VariableChanged"];
                     
                             if($Status == true && $DiffToLastChange <= 10)
                                 {    
@@ -293,6 +300,21 @@
           }
    
         }
+
+	public function CheckSabotage() {
+	
+		$arraySabID = json_decode($this->ReadPropertyString("SabotageID"));
+		foreach($arraySabID as $SaboActivate) {
+			switch($SaboActivate)
+			{
+				case true:
+					SetValue($this->GetIDForIdent("SabotageAlarm"));
+				break;
+			}
+		}	
+	
+	
+	}
         
         
         public function AlarmQuittierung() {
@@ -307,7 +329,12 @@
             $StateUpdate = json_decode($this->ReadPropertyString("Supplement"));
             foreach ($StateUpdate as $IDUpdate) {
                 $this->RegisterMessage($IDUpdate->ID, VM_UPDATE);
-            }
+	    }
+
+	    $Sabotage = json_decode($this->ReadPropertyString("SabotageID"));
+	    foreach($Sabotage as $SabotageID) {
+	    	$this->RegisterMessage($SabotageID->ID, VM_UPDATE);
+	    }
             
             
         }
@@ -321,7 +348,18 @@
                         $this->StateCheck();
                     
                     return;
-            }
+	    }
+
+	    $SabID = json_decode($this->RegisterPropertyString("SabotageID"));
+	    foreach($SabID as $SabCheck) {
+		    switch($SabCheck)
+		    {
+		    	case true:
+				$this->CheckSabotage();
+			break;
+		    }
+		return;
+	    }
             
         }
         
