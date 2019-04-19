@@ -227,7 +227,7 @@
           } else
             {
                 SetValue($this->GetIDForIdent("OldPassword"), "");
-                echo "ACHTUNG: Falsches Passwort und / oder Anlage noch aktiv";                
+                echo "ACHTUNG: Falsches Passwort oder Anlage noch aktiv";                
             }
           
 
@@ -350,7 +350,7 @@
                     return;
 	    }
 
-	    $SabID = json_decode($this->RegisterPropertyString("SabotageID"));
+	    $SabID = json_decode($this->ReadPropertyString("SabotageID"));
 	    foreach($SabID as $SabCheck) {
 		    switch($SabCheck)
 		    {
