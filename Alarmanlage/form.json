@@ -21,7 +21,6 @@
          		"edit": { "type": "SelectVariable" } }],
       "values": []
     },
-    
 
    	{ "type": "Label", "caption": "ID's für Sabotage auslösung" },
     { "type": "List",
@@ -39,7 +38,6 @@
          		"edit": { "type": "SelectVariable" } }],
       "values": []
     },
-
     
     {"type": "ValidationTextBox", "name": "PushTitel", "caption": "Anzuzeigender Titel"},
     {"type": "ValidationTextBox", "name": "PushText", "caption": "Anzuzeigender Text"},
@@ -63,6 +61,6 @@
     		{"caption": "siren", "value": "siren" },
     		{"caption": "space", "value": "space" },
     		{"caption": "trickling", "value": "trickling" },
-    		{"caption": "turn", "value": "turn" } ] } ]
+    		{"caption": "turn", "value": "turn" } ] } 
 
 }
