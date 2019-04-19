@@ -20,22 +20,7 @@
       "values": []
     },
 
-   	{ "type": "Label", "caption": "ID's für Sabotage auslösung" },
-    { "type": "List",
-      "name": "SabotageID",
-      "caption": "SabotageID",
-      "rowCount": 10,
-      "add": true,
-      "delete": true,
-      "sort": {	 "column": "SabotageVariablen",
-       		 "direction": "ascending" },
-      "columns": [{	"name": "SabotageVariablen",
-          		"label": "ID",
-          		"width": "620px",
-          		"add": 0,
-         		"edit": { "type": "SelectVariable" } }],
-      "values": []
-    },
+
     
     {"type": "ValidationTextBox", "name": "PushTitel", "caption": "Anzuzeigender Titel"},
     {"type": "ValidationTextBox", "name": "PushText", "caption": "Anzuzeigender Text"},
