@@ -146,7 +146,8 @@
                                 switch ($AlarmQuittierung)
                                 {
                                     case 0:
-                                        SetValue($this->GetIDForIdent("LastAlert"), "");
+					    SetValue($this->GetIDForIdent("LastAlert"), "");
+					    SetValue($this->GetIDForIdent("MagnetAlarm"), 0);
                                     break;
                                     
                                     case 1:
@@ -267,7 +268,7 @@
                                     
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text", "$AlertSound", $InstanzID);
 				    WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text");
-				    SetValue("MagnetAlarm");
+				    SetValue($this->GetIDForIdent("MagnetAlarm"), 1);
                                     
                                 }
                                
