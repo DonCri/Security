@@ -244,9 +244,9 @@
 		  {
 				  $VariableName = IPS_GetName($arrayID->ID);
 				  $VariableState = GetValue($arrayID->ID);
-				  $InstanzID = IPS_GetParent($StatusID->ID);
+				  $InstanzID = IPS_GetParent($arrayID->ID);
                   $InstanzName = IPS_GetName($InstanzID);   
-			      $VariableInfo = IPS_GetVariable($StatusID->ID);
+			      $VariableInfo = IPS_GetVariable($arrayID->ID);
 				  $DiffToLastChange = strtotime("now") - $VariableInfo["VariableChanged"];
 
 				  switch($VariableName)
@@ -255,7 +255,7 @@
 							switch($AlarmAktiv)
 							{
 								case true:
-									if($Status == true && $DiffToLastChange <= 10)
+									if($VariableState = true && $DiffToLastChange <= 10)
                                 	{    
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
                                     
