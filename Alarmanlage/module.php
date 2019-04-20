@@ -310,7 +310,7 @@
 			$ID = GetValue($SaboActivate->SabotageVariablen);
 			switch($ID)
 			{
-				case true:
+				case 1:
 					SetValue($this->GetIDForIdent("SabotageAlarm"), 1);
 				break;
 			}
