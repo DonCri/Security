@@ -365,7 +365,7 @@
             $this->SendDebug("MessageSink", "SenderID: ". $SenderID .", Message: ". $Message , 0);
             $ID = json_decode($this->ReadPropertyString("Supplement"));
 
-            foreach ($AllID as $state) {
+            foreach ($ID as $state) {
                         $this->StateCheck();
                     
                     return;
