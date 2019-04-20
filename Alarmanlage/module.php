@@ -53,7 +53,7 @@
             $this->RegisterPropertyString("PushTitel", ""); // Titel welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("PushText", ""); // Test welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("AlertSound", ""); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon
-	    $this->RegisterPropertyString("SabotageID", "[]"); // Liste für boolean Variablen
+	    $this->RegisterPropertyString("SabotageID", "[]"); // Liste für Variablen
 	    
 	    
             
