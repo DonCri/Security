@@ -269,7 +269,7 @@
 					break;
 
 					case "Ereignis":
-							SetValue("SabotageAlarm", 1);
+							SetValue($this->GetIDForIdent("SabotageAlarm"), 1);
 					break;
 
 				  }
