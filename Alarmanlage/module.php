@@ -147,7 +147,7 @@
                                     break;
                                     
                                     case 1:
-                                        SetValue($this->GetIDForIdent("SabotageAlarm", 0);
+                                        SetValue($this->GetIDForIdent("SabotageAlarm"), 0);
                                     break;
                                     
                                     case 2:
