@@ -307,7 +307,7 @@
 	
 		$arraySabID = json_decode($this->ReadPropertyString("SabotageID"));
 		foreach($arraySabID as $SaboActivate) {
-			switch($SaboActivate)
+			switch($SaboActivate->SabotageVariablen)
 			{
 				case true:
 					SetValue($this->GetIDForIdent("SabotageAlarm"), 1);
