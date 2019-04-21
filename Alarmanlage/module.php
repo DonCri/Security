@@ -101,7 +101,6 @@
 
             $AlarmState = GetValue($this->GetIDForIdent("State"));
             $AlarmQuittierung = GetValue($this->GetIDForIdent("Quittierung"));
-            $Modus = GetValue($this->GetIDForIdent("Mode"));
             
             
               switch($Ident) {
