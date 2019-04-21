@@ -25,7 +25,7 @@
         			IPS_SetVariableProfileValues("BRELAG.AlarmModus", 0, 5, 0);
         			IPS_SetVariableProfileIcon("BRELAG.AlarmModus", "IPS");
         			IPS_SetVariableProfileAssociation("BRELAG.AlarmModus", 0, $this->Translate("ModeOne"), "", -1);
-        			IPS_SetVariableProfileAssociation("BRELAG.AlarmModus", 1, $this->Translate("ModeBell"), "", -1);
+					IPS_SetVariableProfileAssociation("BRELAG.AlarmModus", 1, $this->Translate("ModeBell"), "", -1);
         		}
 
             //Progil für Quittierung
@@ -36,7 +36,7 @@
         			IPS_SetVariableProfileAssociation("BRELAG.Quittierung", 0, "Alarmmeldung", "", -1);
         			IPS_SetVariableProfileAssociation("BRELAG.Quittierung", 1, "Sabotage", "", -1);
         			IPS_SetVariableProfileAssociation("BRELAG.Quittierung", 2, "Batterie", "", -1);
-        			IPS_SetVariableProfileAssociation("BRELAG.Quittierung", 3, "Lebensdauer", "", -1);
+					IPS_SetVariableProfileAssociation("BRELAG.Quittierung", 3, "Lebensdauer", "", -1);
         		}
 
             // Profil für Statusanzeige
@@ -54,6 +54,8 @@
             $this->RegisterPropertyString("PushText", ""); // Test welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("AlertSound", ""); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon
 	    	$this->RegisterPropertyString("SabotageID", "[]"); // Liste für Variablen
+			$this->RegisterPropertyString("Nachricht1", "Status");
+			$this->RegisterPropertyString("Nachricht2", "Ereignis");
 	    
 	    
             
@@ -103,34 +105,6 @@
                     //Neuen Wert in die Statusvariable schreiben
                       SetValue($this->GetIDForIdent($Ident), $Value);
                       $this->Activate();
-                    break;
-                    
-                    case "Mode":
-                      //Neuen Wert in die Statusvariable schreiben                      
-                      
-                            switch ($AlarmState)
-                            {
-                                case false:
-                                    switch($Modus)
-                                    {
-                                        case 0:
-                                            
-                                        break;
-                                        
-                                        case 1:
-                                            
-                                        break;
-                                    }
-                                    SetValue($this->GetIDForIdent($Ident), $Value);
-                                break;
-                                
-                                default:
-                                    echo "Alarm deaktivieren";
-                                break;
-                                
-                            }
-                            
-                      
                     break;
                     
                     case "Quittierung":
@@ -251,11 +225,11 @@
 
 				  switch($VariableName)
 				  {
-				  	case "Status":
+				  	case $this->ReadPropertyString("Nachricht1"):
 							switch($AlarmAktiv)
 							{
 								case true:
-									if($VariableState = true && $DiffToLastChange <= 10)
+									if($VariableState == true && $DiffToLastChange <= 10)
                                 	{    
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
                                     
@@ -268,7 +242,7 @@
 							}
 					break;
 
-					case "Ereignis":
+					case $this->ReadPropertyString("Nachricht2"):
 							SetValue($this->GetIDForIdent("SabotageAlarm"), 1);
 					break;
 
