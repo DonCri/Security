@@ -50,9 +50,13 @@
             // Eigenschaften für Formular
             $this->RegisterPropertyString("Supplement", "[]"); // Liste für boolean Variablen (z.B. Magnetkontakt -> Status). Können auch andere Variablen sein, solange es sich um Boolsche handelt.
             $this->RegisterPropertyInteger("WebFrontName", 0); // Integer Wert für WebFront Auswahl. Wird für die Push-Nachrichten benötigt
-            $this->RegisterPropertyString("PushTitel", ""); // Titel welches in der Pusch-Nachricht angezeigt werden soll
-            $this->RegisterPropertyString("PushText", ""); // Test welches in der Pusch-Nachricht angezeigt werden soll
-            $this->RegisterPropertyString("AlertSound", ""); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon
+            $this->RegisterPropertyString("PushTitel1", ""); // Titel welches in der Pusch-Nachricht angezeigt werden soll
+            $this->RegisterPropertyString("PushText1", ""); // Test welches in der Pusch-Nachricht angezeigt werden soll
+            $this->RegisterPropertyString("AlertSound1", ""); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon
+            $this->RegisterPropertyString("PushTitel2", ""); // Titel welches in der Pusch-Nachricht angezeigt werden soll
+            $this->RegisterPropertyString("PushText2", ""); // Test welches in der Pusch-Nachricht angezeigt werden soll
+            $this->RegisterPropertyString("AlertSound2", ""); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon
+
 	    	$this->RegisterPropertyString("SabotageID", "[]"); // Liste für Variablen
 			$this->RegisterPropertyString("Nachricht1", "Status");
 			$this->RegisterPropertyString("Nachricht2", "Ereignis");

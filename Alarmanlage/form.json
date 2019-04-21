@@ -24,9 +24,9 @@
 	{ "type": "Label", "caption": "Name der Variable für Nachricht 1"  },
 	{ "type": "ValidationTextBox", "name": "Nachricht1", "caption": "Variablen Name" },
 	{ "type": "Label", "caption": "Text für Nachricht 1"  },
-    {"type": "ValidationTextBox", "name": "PushTitel", "caption": "Anzuzeigender Titel"},
-    {"type": "ValidationTextBox", "name": "PushText", "caption": "Anzuzeigender Text"},
-    {"type": "Select", "name": "AlertSound", "caption": "Wählbare Töne", "options": [ 
+    {"type": "ValidationTextBox", "name": "PushTitel1", "caption": "Anzuzeigender Titel"},
+    {"type": "ValidationTextBox", "name": "PushText1", "caption": "Anzuzeigender Text"},
+    {"type": "Select", "name": "AlertSound1", "caption": "Wählbare Töne", "options": [ 
     		{"caption": "kein", "value": "" },
     		{"caption": "alarm", "value": "alarm" },
     		{"caption": "bell", "value": "bell" },
@@ -51,9 +51,9 @@
 	{ "type": "Label", "caption": "Name der Variable für Nachricht 2"  },
 	{ "type": "ValidationTextBox", "name": "Nachricht2", "caption": "Variablen Name" },
 	{ "type": "Label", "caption": "Text für Nachricht 2"  },
-    {"type": "ValidationTextBox", "name": "PushTitel", "caption": "Anzuzeigender Titel"},
-    {"type": "ValidationTextBox", "name": "PushText", "caption": "Anzuzeigender Text"},
-    {"type": "Select", "name": "AlertSound", "caption": "Wählbare Töne", "options": [ 
+    {"type": "ValidationTextBox", "name": "PushTitel2", "caption": "Anzuzeigender Titel"},
+    {"type": "ValidationTextBox", "name": "PushText2", "caption": "Anzuzeigender Text"},
+    {"type": "Select", "name": "AlertSound2", "caption": "Wählbare Töne", "options": [ 
     		{"caption": "kein", "value": "" },
     		{"caption": "alarm", "value": "alarm" },
     		{"caption": "bell", "value": "bell" },
