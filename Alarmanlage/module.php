@@ -1,17 +1,17 @@
 <?
 		
     // Klassendefinition
-    class Alarmanlage extends IPSModule {
+class Alarmanlage extends IPSModule {
         
         // Der Konstruktor des Moduls
         // Überschreibt den Standard Kontruktor von IPS
-        public function __construct($InstanceID) {
+	public function __construct($InstanceID) {
             // Diese Zeile nicht löschen
             parent::__construct($InstanceID);
 
 
             // Selbsterstellter Code
-        }
+	}
         
         // Überschreibt die interne IPS_Create($id) Funktion
 	public function Create() {
@@ -94,7 +94,6 @@
                       
         }
 
-
         // Überschreibt die intere IPS_ApplyChanges($id) Funktion
 	public function RequestAction($Ident, $Value) {
 
@@ -136,22 +135,20 @@
 	    	        switch ($AlarmQuittierung)
     	    	    {
 			            case 0:
-							SetValue($this->GetIDForIdent($Ident), $Value);
 							SetValue($this->GetIDForIdent("LastAlert"), "");
 							SetValue($this->GetIDForIdent("MagnetAlarm"), 0);
 						break;
                                     
 						case 1:
-							SetValue($this->GetIDForIdent($Ident), $Value);
 							SetValue($this->GetIDForIdent("SabotageAlarm"), 0);
 						break;
                                     
 						case 2:
-							SetValue($this->GetIDForIdent($Ident), $Value);
+								
 						break;
                                     
 						case 3:		
-							SetValue($this->GetIDForIdent($Ident), $Value);
+								
 						break;
 					}
                                 // Platzhalter für Quittierfunktion
@@ -335,12 +332,7 @@
 	
 	}
         
-        
-        public function AlarmQuittierung() {
-            
-        }
-        
-        public function ApplyChanges() {
+    public function ApplyChanges() {
             
             // Diese Zeile nicht löschen
             parent::ApplyChanges();
@@ -350,9 +342,9 @@
                 $this->RegisterMessage($IDUpdate->ID, VM_UPDATE);
 	    	}
             
-        }
+	}
         
-        public function MessageSink($TimeStamp, $SenderID, $Message, $Data) {
+	public function MessageSink($TimeStamp, $SenderID, $Message, $Data) {
             
             $this->SendDebug("MessageSink", "SenderID: ". $SenderID .", Message: ". $Message , 0);
             $ID = json_decode($this->ReadPropertyString("Supplement"));
@@ -363,8 +355,8 @@
                     return;
 	    	}
             
-        }
+	}
         
 
-    }
+}
 ?>
