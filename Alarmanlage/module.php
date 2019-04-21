@@ -120,11 +120,13 @@
                                 switch ($AlarmQuittierung)
                                 {
                                     case 0:
+										SetValue($this->GetIDForIdent($Ident), $Value);
 					    				SetValue($this->GetIDForIdent("LastAlert"), "");
 					    				SetValue($this->GetIDForIdent("MagnetAlarm"), 0);
                                     break;
                                     
-                                    case 1:
+									case 1:
+										SetValue($this->GetIDForIdent($Ident), $Value);
                                         SetValue($this->GetIDForIdent("SabotageAlarm"), 0);
                                     break;
                                     
@@ -136,7 +138,6 @@
                                         
                                     break;
                                 }
-                                SetValue($this->GetIDForIdent($Ident), $Value);
                                 // Platzhalter für Quittierfunktion
                                 break;
                                 
