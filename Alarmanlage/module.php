@@ -214,9 +214,9 @@
           $array = json_decode($this->ReadPropertyString("Supplement"));
           
           $AlarmAktiv = GetValue($this->GetIDForIdent("State"));
-          $Titel = $this->ReadPropertyString("PushTitel");
-          $Text = $this->ReadPropertyString("PushText");
-          $AlertSound = $this->ReadPropertyString("AlertSound");
+          $Titel = $this->ReadPropertyString("PushTitel1");
+          $Text = $this->ReadPropertyString("PushText1");
+          $AlertSound = $this->ReadPropertyString("AlertSound1");
 
 		  foreach($array as $arrayID)
 		  {
