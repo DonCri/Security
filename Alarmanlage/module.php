@@ -138,12 +138,13 @@
                                     break;
                                 }
                                 // Platzhalter für Quittierfunktion
-                                break;
+                           	break;
                                 
                             default:
                                 echo "Alarm deaktivieren";
                             break;
-                        }
+						}
+						SetValue($this->GetIDForIdent($Ident), $Value);
                     break;
                     
                     case "OldPassword":
