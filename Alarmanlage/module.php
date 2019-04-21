@@ -131,11 +131,11 @@
                                     break;
                                     
                                     case 2:
-                                        
+                                        SetValue($this->GetIDForIdent($Ident), $Value);
                                     break;
                                     
                                     case 3:
-                                        
+                                        SetValue($this->GetIDForIdent($Ident), $Value);
                                     break;
                                 }
                                 // Platzhalter für Quittierfunktion
@@ -215,9 +215,13 @@
           $array = json_decode($this->ReadPropertyString("Supplement"));
           
           $AlarmAktiv = GetValue($this->GetIDForIdent("State"));
-          $Titel = $this->ReadPropertyString("PushTitel1");
-          $Text = $this->ReadPropertyString("PushText1");
-          $AlertSound = $this->ReadPropertyString("AlertSound1");
+          $Titel1 = $this->ReadPropertyString("PushTitel1");
+          $Text1 = $this->ReadPropertyString("PushText1");
+		  $AlertSound1 = $this->ReadPropertyString("AlertSound1");
+		  $Titel2 = $this->ReadPropertyString("PushTitel2");
+          $Text2 = $this->ReadPropertyString("PushText2");
+          $AlertSound2 = $this->ReadPropertyString("AlertSound2");
+
 
 		  foreach($array as $arrayID)
 		  {
@@ -238,7 +242,7 @@
                                 	{    
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
                                     
-                                    WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text", "$AlertSound", $InstanzID);
+                                    WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel1", "$InstanzName $Text1", "$AlertSound1", $InstanzID);
 				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text");
 				    				SetValue($this->GetIDForIdent("MagnetAlarm"), 1);
                                     
@@ -248,7 +252,14 @@
 					break;
 
 					case $this->ReadPropertyString("Nachricht2"):
-							SetValue($this->GetIDForIdent("SabotageAlarm"), 1);
+                            if($VariableState == true && $DiffToLastChange <= 10)
+                                	{    
+                                    SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
+                                    
+                                    WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel2", "$InstanzName $Text2", "$AlertSound2", $InstanzID);
+				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text");
+				    				SetValue($this->GetIDForIdent("SabotageAlarm"), 1);                                    
+									}
 					break;
 
 				  }
