@@ -240,7 +240,7 @@ class Alarmanlage extends IPSModule {
 								case true:
 									if($VariableState == true && $DiffToLastChange <= 10)
                                 	{    
-                                    SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . $Text1);
+                                    SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text1);
                                     
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel1", "$InstanzName $Text1", "$AlertSound1", $InstanzID);
 				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel1", "$InstanzName $Text1");
@@ -254,7 +254,7 @@ class Alarmanlage extends IPSModule {
 					case $this->ReadPropertyString("Nachricht2"):
                             if($VariableState == true && $DiffToLastChange <= 10)
                                 	{    
-                                    SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . $Text2);
+                                    SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text2);
                                     
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel2", "$InstanzName $Text2", "$AlertSound2", $InstanzID);
 				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel2", "$InstanzName $Text2");
