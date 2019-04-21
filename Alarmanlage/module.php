@@ -98,53 +98,17 @@
         // Überschreibt die intere IPS_ApplyChanges($id) Funktion
 	public function RequestAction($Ident, $Value) {
 
-
-            $AlarmState = GetValue($this->GetIDForIdent("State"));
-            $AlarmQuittierung = GetValue($this->GetIDForIdent("Quittierung"));
-            
-            
               switch($Ident) {
                     case "Password":
                     //Neuen Wert in die Statusvariable schreiben
-                      SetValue($this->GetIDForIdent($Ident), $Value);
-                      $this->Activate();
+                      	SetValue($this->GetIDForIdent($Ident), $Value);
+                      	$this->Activate();
                     break;
                     
                     case "Quittierung":
                       //Neuen Wert in die Statusvariable schreiben
-                        
-                        switch ($AlarmState)
-                        {
-                            case false:
-                                switch ($AlarmQuittierung)
-                                {
-                                    case 0:
-										SetValue($this->GetIDForIdent($Ident), $Value);
-					    				SetValue($this->GetIDForIdent("LastAlert"), "");
-					    				SetValue($this->GetIDForIdent("MagnetAlarm"), 0);
-                                    break;
-                                    
-									case 1:
-										SetValue($this->GetIDForIdent($Ident), $Value);
-                                        SetValue($this->GetIDForIdent("SabotageAlarm"), 0);
-                                    break;
-                                    
-                                    case 2:
-                                        SetValue($this->GetIDForIdent($Ident), $Value);
-                                    break;
-                                    
-                                    case 3:
-                                        SetValue($this->GetIDForIdent($Ident), $Value);
-                                    break;
-                                }
-                                // Platzhalter für Quittierfunktion
-                           	break;
-                                
-                            default:
-                                echo "Alarm deaktivieren";
-                            break;
-						}
 						SetValue($this->GetIDForIdent($Ident), $Value);
+						$this->Quittierung();
                     break;
                     
                     case "OldPassword":
@@ -160,6 +124,44 @@
                     }
 
       }
+	
+	public function Quittierung() {
+
+			$AlarmState = GetValue($this->GetIDForIdent("State"));
+			$AlarmQuittierung = GetValue($this->GetIDForIdent("Quittierung"));
+
+			switch ($AlarmState)
+            {
+            	case false:
+	    	        switch ($AlarmQuittierung)
+    	    	    {
+			            case 0:
+							SetValue($this->GetIDForIdent($Ident), $Value);
+							SetValue($this->GetIDForIdent("LastAlert"), "");
+							SetValue($this->GetIDForIdent("MagnetAlarm"), 0);
+						break;
+                                    
+						case 1:
+							SetValue($this->GetIDForIdent($Ident), $Value);
+							SetValue($this->GetIDForIdent("SabotageAlarm"), 0);
+						break;
+                                    
+						case 2:
+							SetValue($this->GetIDForIdent($Ident), $Value);
+						break;
+                                    
+						case 3:		
+							SetValue($this->GetIDForIdent($Ident), $Value);
+						break;
+					}
+                                // Platzhalter für Quittierfunktion
+				break;
+                                
+				default:
+					echo "Alarm deaktivieren";
+				break;
+			}
+	}
       
 	public function Activate() {
 
@@ -243,7 +245,7 @@
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
                                     
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel1", "$InstanzName $Text1", "$AlertSound1", $InstanzID);
-				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text");
+				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel1", "$InstanzName $Text1");
 				    				SetValue($this->GetIDForIdent("MagnetAlarm"), 1);
                                     
 									}
@@ -257,7 +259,7 @@
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
                                     
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel2", "$InstanzName $Text2", "$AlertSound2", $InstanzID);
-				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text");
+				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel2", "$InstanzName $Text2");
 				    				SetValue($this->GetIDForIdent("SabotageAlarm"), 1);                                    
 									}
 					break;
