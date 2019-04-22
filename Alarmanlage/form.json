@@ -76,6 +76,7 @@
 			{"caption": "turn", "value": "turn" } ] },
  
 	{ "type": "Label", "caption": "Nachricht 3"  },
+	{ "type": "CheckBox", "name": "PushNachrichten3", "caption": "Pusch-Nachrichten aktivieren?" },
 	{ "type": "ValidationTextBox", "name": "Nachricht3", "caption": "Variablen Name" },
 	{ "type": "Label", "caption": "Text für Nachricht 3"  },
     {"type": "ValidationTextBox", "name": "PushTitel3", "caption": "Anzuzeigender Titel"},
@@ -103,6 +104,7 @@
     		{"caption": "turn", "value": "turn" } ] },
 
 	{ "type": "Label", "caption": "Nachricht 4"  },
+	{ "type": "CheckBox", "name": "PushNachrichten4", "caption": "Pusch-Nachrichten aktivieren?" },
 	{ "type": "ValidationTextBox", "name": "Nachricht4", "caption": "Variablen Name" },
 	{ "type": "Label", "caption": "Text für Nachricht 4"  },
     {"type": "ValidationTextBox", "name": "PushTitel4", "caption": "Anzuzeigender Titel"},
