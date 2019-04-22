@@ -166,8 +166,9 @@ class Alarmanlage extends IPSModule {
 						
 							foreach($arrayQuittierung as $ID2)
 							{
+								$Push3Aktiv = GetValue($this->ReadPropertyString("Nachricht3"));
 								$VarName = IPS_GetName($ID2->ID);
-								if($VariableName == $this->ReadPropertyString("Nachricht3")) {
+								if($VariableName == $Push3Aktiv) {
 									SetValue($ID1->ID, false);
 								}	
 							}
@@ -178,8 +179,9 @@ class Alarmanlage extends IPSModule {
 						
 							foreach($arrayQuittierung as $ID3)
 							{
-								$VarName = IPS_GetName($ID3->ID);
-								if($VariableName == $this->ReadPropertyString("Nachricht3")) {
+								$Push4Aktiv = GetValue($this->ReadPropertyString("Nachricht4"));
+								$VarName = IPS_GetName($ID2->ID);
+								if($VariableName == $Push4Aktiv) {
 									SetValue($ID1->ID, false);
 								}	
 							}
