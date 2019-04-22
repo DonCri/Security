@@ -156,7 +156,7 @@ class Alarmanlage extends IPSModule {
 							{
 									$VarName = IPS_GetName($ID1->ID);
 									$VarNameSoll1 = GetValue($this->ReadPropertyString("Nachricht2"));
-								if($VariableName == $VarNameSoll1 {
+								if($VariableName == $VarNameSoll1) {
 									SetValue($ID1->ID, false);
 								}	
 							}
