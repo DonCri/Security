@@ -154,8 +154,9 @@ class Alarmanlage extends IPSModule {
 						
 							foreach($arrayQuittierung as $ID1)
 							{
-								$VarName = IPS_GetName($ID1->ID);
-								if($VariableName == $this->ReadPropertyString("Nachricht2")) {
+									$VarName = IPS_GetName($ID1->ID);
+									$VarNameSoll1 = GetValue($this->ReadPropertyString("Nachricht2"));
+								if($VariableName == $VarNameSoll1 {
 									SetValue($ID1->ID, false);
 								}	
 							}
@@ -166,9 +167,9 @@ class Alarmanlage extends IPSModule {
 						
 							foreach($arrayQuittierung as $ID2)
 							{
-								$Push3Aktiv = GetValue($this->ReadPropertyString("Nachricht3"));
 								$VarName = IPS_GetName($ID2->ID);
-								if($VariableName == $Push3Aktiv) {
+								$VarNameSoll2 = GetValue($this->ReadPropertyString("Nachricht3"));
+								if($VariableName == $VarNameSoll2) {
 									SetValue($ID2->ID, false);
 								}	
 							}
@@ -179,9 +180,9 @@ class Alarmanlage extends IPSModule {
 						
 							foreach($arrayQuittierung as $ID3)
 							{
-								$Push4Aktiv = GetValue($this->ReadPropertyString("Nachricht4"));
-								$VarName = IPS_GetName($ID3->ID);
-								if($VariableName == $Push4Aktiv) {
+									$VarName = IPS_GetName($ID3->ID);
+									$VarNameSoll3 = GetValue($this->ReadPropertyString("Nachricht4"));
+								if($VariableName == $VarNameSoll3) {
 									SetValue($ID3->ID, false);
 								}	
 							}
@@ -383,7 +384,7 @@ class Alarmanlage extends IPSModule {
    
         }
 
-	public function CheckSabotage() {
+	/* public function CheckSabotage() {
 	
 		$arraySabID = json_decode($this->ReadPropertyString("SabotageID"));
 		foreach($arraySabID as $SaboActivate) {
@@ -397,7 +398,7 @@ class Alarmanlage extends IPSModule {
 		}	
 	
 	
-	}
+	} */
         
     public function ApplyChanges() {
             
