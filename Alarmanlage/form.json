@@ -73,6 +73,7 @@
     		{"caption": "siren", "value": "siren" },
     		{"caption": "space", "value": "space" },
     		{"caption": "trickling", "value": "trickling" },
+			{"caption": "turn", "value": "turn" } ] },
  
 	{ "type": "Label", "caption": "Nachricht 3"  },
 	{ "type": "ValidationTextBox", "name": "Nachricht3", "caption": "Variablen Name" },
@@ -100,7 +101,6 @@
     		{"caption": "space", "value": "space" },
     		{"caption": "trickling", "value": "trickling" },
     		{"caption": "turn", "value": "turn" } ] },
-   		{"caption": "turn", "value": "turn" } ] },
 
 	{ "type": "Label", "caption": "Nachricht 4"  },
 	{ "type": "ValidationTextBox", "name": "Nachricht4", "caption": "Variablen Name" },
