@@ -211,7 +211,7 @@ class Alarmanlage extends IPSModule {
             } elseif($Password == $currentPassword && $State == true)
               {
                 SetValue($this->GetIDForIdent("State"), false);
-                SetValue($this->GetIDForIdent("Pas)word"), "");
+                SetValue($this->GetIDForIdent("Password"), "");
               } elseif ($Password != $currentPassword)
               {
                   SetValue($this->GetIDForIdent("Password"), "");
