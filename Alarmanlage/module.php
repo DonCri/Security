@@ -68,8 +68,8 @@ class Alarmanlage extends IPSModule {
 			$this->RegisterPropertyString("Nachricht2", "Ereignis");
 			$this->RegisterPropertyString("Nachricht3", "Batterie");
 			$this->RegisterPropertyString("Nachricht4", "Lebenszeichen");
-			$this->RegisterPropertyBoolean("PushNachricht3", false);
-	    	$this->RegisterPropertyBoolean("PushNachricht4", false);
+			$this->RegisterPropertyBoolean("PushNachrichten3", false);
+	    	$this->RegisterPropertyBoolean("PushNachrichten4", false);
             
             // Boolean für Statusanzeige der Alarmanlage, ist inaktiv!
             $this->RegisterVariableBoolean("State", "Status", "BRELAG.AlarmStatus", "0");
@@ -257,11 +257,11 @@ class Alarmanlage extends IPSModule {
 		  $Titel2 = $this->ReadPropertyString("PushTitel2");
           $Text2 = $this->ReadPropertyString("PushText2");
 		  $AlertSound2 = $this->ReadPropertyString("AlertSound2");
-		  $PushNachricht3 = $this->ReadPropertyBoolean("PushNachricht3");
+		  $PushNachricht3 = $this->ReadPropertyBoolean("PushNachrichten3");
           $Titel3 = $this->ReadPropertyString("PushTitel3");
           $Text3 = $this->ReadPropertyString("PushText3");
 		  $AlertSound3 = $this->ReadPropertyString("AlertSound3");
-		  $PushNachricht4 = $this->ReadPropertyBoolean("PushNachricht4");
+		  $PushNachricht4 = $this->ReadPropertyBoolean("PushNachrichten4");
 		  $Titel4 = $this->ReadPropertyString("PushTitel4");
           $Text4 = $this->ReadPropertyString("PushText4");
           $AlertSound4 = $this->ReadPropertyString("AlertSound4");
