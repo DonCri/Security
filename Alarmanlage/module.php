@@ -60,7 +60,8 @@ class Alarmanlage extends IPSModule {
 	    	$this->RegisterPropertyString("SabotageID", "[]"); // Liste für Variablen
 			$this->RegisterPropertyString("Nachricht1", "Status");
 			$this->RegisterPropertyString("Nachricht2", "Ereignis");
-	    
+			$this->RegisterPropertyString("Nachricht3", "Batterie");
+			$this->RegisterPropertyString("Nachricht4", "Lebenszeichen");
 	    
             
             // Boolean für Statusanzeige der Alarmanlage, ist inaktiv!
@@ -221,6 +222,12 @@ class Alarmanlage extends IPSModule {
 		  $Titel2 = $this->ReadPropertyString("PushTitel2");
           $Text2 = $this->ReadPropertyString("PushText2");
           $AlertSound2 = $this->ReadPropertyString("AlertSound2");
+          $Titel3 = $this->ReadPropertyString("PushTitel3");
+          $Text3 = $this->ReadPropertyString("PushText3");
+		  $AlertSound3 = $this->ReadPropertyString("AlertSound3");
+		  $Titel4 = $this->ReadPropertyString("PushTitel4");
+          $Text4 = $this->ReadPropertyString("PushText4");
+          $AlertSound4 = $this->ReadPropertyString("AlertSound4");
 
 
 		  foreach($array as $arrayID)
@@ -252,7 +259,7 @@ class Alarmanlage extends IPSModule {
 					break;
 
 					case $this->ReadPropertyString("Nachricht2"):
-                            if($VariableState == false && $DiffToLastChange <= 10)
+                            if($VariableState == true && $DiffToLastChange <= 10)
                                 	{    
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text2);
                                     
@@ -261,6 +268,25 @@ class Alarmanlage extends IPSModule {
 				    				SetValue($this->GetIDForIdent("SabotageAlarm"), 1);                                    
 									}
 					break;
+
+					case $this->ReadPropertyString("Nachricht3"):
+                            if($VariableState == true && $DiffToLastChange <= 10)
+                                	{    
+                                    SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text3);
+                                    
+                                    WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel3", "$InstanzName $Text3", "$AlertSound3", $InstanzID);
+				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel3", "$InstanzName $Text3");                                   
+									}
+					break;
+
+					case $this->ReadPropertyString("Nachricht4"):
+                            if($VariableState == true && $DiffToLastChange <= 10)
+                                	{    
+                                    SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text4);
+                                    
+                                    WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel4", "$InstanzName $Text4", "$AlertSound4", $InstanzID);
+				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel4", "$InstanzName $Text4");
+									}
 
 				  }
 				 
