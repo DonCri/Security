@@ -156,7 +156,7 @@ class Alarmanlage extends IPSModule {
 							{
 									$VarName = IPS_GetName($ID1->ID);
 									$VarNameSoll1 = GetValue($this->ReadPropertyString("Nachricht2"));
-								if($VariableName == $VarNameSoll1) {
+								if($VarName == $VarNameSoll1) {
 									SetValue($ID1->ID, false);
 								}	
 							}
@@ -169,7 +169,7 @@ class Alarmanlage extends IPSModule {
 							{
 								$VarName = IPS_GetName($ID2->ID);
 								$VarNameSoll2 = GetValue($this->ReadPropertyString("Nachricht3"));
-								if($VariableName == $VarNameSoll2) {
+								if($VarName == $VarNameSoll2) {
 									SetValue($ID2->ID, false);
 								}	
 							}
@@ -182,7 +182,7 @@ class Alarmanlage extends IPSModule {
 							{
 									$VarName = IPS_GetName($ID3->ID);
 									$VarNameSoll3 = GetValue($this->ReadPropertyString("Nachricht4"));
-								if($VariableName == $VarNameSoll3) {
+								if($VarName == $VarNameSoll3) {
 									SetValue($ID3->ID, false);
 								}	
 							}
