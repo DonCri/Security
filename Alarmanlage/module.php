@@ -130,6 +130,7 @@ class Alarmanlage extends IPSModule {
 
 			$AlarmState = GetValue($this->GetIDForIdent("State"));
 			$AlarmQuittierung = GetValue($this->GetIDForIdent("Quittierung"));
+			$arrayQuittierung = json_decode($this->ReadPropertyString("Supplement"));
 
 			switch ($AlarmState)
             {
@@ -141,17 +142,41 @@ class Alarmanlage extends IPSModule {
 							SetValue($this->GetIDForIdent("MagnetAlarm"), 0);
 						break;
                                     
-						case 1:
+						case 1: // Quittierung Ereignis (Sabotage) 
 							SetValue($this->GetIDForIdent("LastAlert"), "");
 							SetValue($this->GetIDForIdent("SabotageAlarm"), 0);
+						
+							foreach($arrayQuittierung as $ID1)
+							{
+								$VarName = IPS_GetName($ID1->ID);
+								if($VariableName == $this->ReadPropertyString("Nachricht2")) {
+									SetValue($ID1->ID, false);
+								}	
+							}
+						break;
+                           
+						case 2: // Quittierung Batterie
+							SetValue($this->GetIDForIdent("LastAlert"), "");
+						
+							foreach($arrayQuittierung as $ID2)
+							{
+								$VarName = IPS_GetName($ID2->ID);
+								if($VariableName == $this->ReadPropertyString("Nachricht3")) {
+									SetValue($ID1->ID, false);
+								}	
+							}
 						break;
                                     
-						case 2:
-								
-						break;
-                                    
-						case 3:		
-								
+						case 3: // Quittierung Lebenszeichen		
+							SetValue($this->GetIDForIdent("LastAlert"), "");
+						
+							foreach($arrayQuittierung as $ID3)
+							{
+								$VarName = IPS_GetName($ID3->ID);
+								if($VariableName == $this->ReadPropertyString("Nachricht3")) {
+									SetValue($ID1->ID, false);
+								}	
+							}
 						break;
 					}
                                 // Platzhalter für Quittierfunktion
@@ -177,7 +202,7 @@ class Alarmanlage extends IPSModule {
             } elseif($Password == $currentPassword && $State == true)
               {
                 SetValue($this->GetIDForIdent("State"), false);
-                SetValue($this->GetIDForIdent("Password"), "");
+                SetValue($this->GetIDForIdent("Pas)word"), "");
               } elseif ($Password != $currentPassword)
               {
                   SetValue($this->GetIDForIdent("Password"), "");
