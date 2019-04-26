@@ -279,21 +279,16 @@ class Alarmanlage extends IPSModule {
 				  switch($VariableName)
 				  {
 				  	case $this->ReadPropertyString("Nachricht1"): // Status (Alarmauslösung durch Magnetkontakt)
-							switch($AlarmAktiv)
-							{
-								case true:
-									if($VariableState == true && $DiffToLastChange <= 10)
-                                	{    
+							if($VariableState == true && $AlarmAktiv == true && $DiffToLastChange <= 10)
+                            {    
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text1);
                                     
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel1", "$InstanzName $Text1", "$AlertSound1", $InstanzID);
 				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel1", "$InstanzName $Text1");
 				    				SetValue($this->GetIDForIdent("MagnetAlarm"), 1);
                                     
-									}
-								break 3;
 							}
-					break;
+					break 2;
 
 					case $this->ReadPropertyString("Nachricht2"): // Sabotage
                             if($VariableState == true && $DiffToLastChange <= 10)
