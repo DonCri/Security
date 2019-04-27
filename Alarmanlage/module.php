@@ -292,7 +292,7 @@ class Alarmanlage extends IPSModule {
 				    				SetValue($this->GetIDForIdent("MagnetAlarm"), 1);
                                     
 							}
-					break;
+					break 2;
 
 					case $VarNameSabotage: // Sabotage
                             if($VariableState == true && $DiffToLastChange <= 10)
@@ -303,7 +303,7 @@ class Alarmanlage extends IPSModule {
 				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel2", "$InstanzName $Text2");
 				    				SetValue($this->GetIDForIdent("SabotageAlarm"), 1);                                    
 							}
-					break;
+					break 2;
 
 					case $VarNameBatterie: // Batterie
                             if($VariableState == true && $DiffToLastChange <= 10)
@@ -315,7 +315,7 @@ class Alarmanlage extends IPSModule {
 
 									}
                             }
-					break;
+					break 2;
 
 					case $VarNameLeben: // Lebenszeichen
                             if($VariableState == true && $DiffToLastChange <= 10)
@@ -327,7 +327,7 @@ class Alarmanlage extends IPSModule {
 
 									}
                             }
-					break;
+					break 2;
 				  }
 		  }
           
