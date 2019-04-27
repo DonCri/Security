@@ -31,12 +31,13 @@ class Alarmanlage extends IPSModule {
             //Progil für Quittierung
             if (!IPS_VariableProfileExists("BRELAG.Quittierung")) {
         			IPS_CreateVariableProfile("BRELAG.Quittierung", 1);
-        			IPS_SetVariableProfileValues("BRELAG.Quittierung", 0, 4, 0);
+					IPS_SetVariableProfileValues("BRELAG.Quittierung", 0, 4, 0);
         			IPS_SetVariableProfileIcon("BRELAG.Quittierung", "IPS");
         			IPS_SetVariableProfileAssociation("BRELAG.Quittierung", 0, "Alarmmeldung", "", -1);
         			IPS_SetVariableProfileAssociation("BRELAG.Quittierung", 1, "Sabotage", "", -1);
         			IPS_SetVariableProfileAssociation("BRELAG.Quittierung", 2, "Batterie", "", -1);
 					IPS_SetVariableProfileAssociation("BRELAG.Quittierung", 3, "Lebensdauer", "", -1);
+							
         		}
 
             // Profil für Statusanzeige
@@ -286,7 +287,8 @@ class Alarmanlage extends IPSModule {
                                     
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel1", "$InstanzName $Text1", "$AlertSound1", $InstanzID);
 				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel1", "$InstanzName $Text1");
-				    				SetValue($this->GetIDForIdent("MagnetAlarm"), 1);
+									SetValue($this->GetIDForIdent("MagnetAlarm"), 1);
+									break 2;
                                     
 							} elseif($VariableState == true && $VariableName == $VarNameSabotage && $DiffToLastChange <= 10)
                             {    
@@ -294,7 +296,8 @@ class Alarmanlage extends IPSModule {
                                     
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel2", "$InstanzName $Text2", "$AlertSound2", $InstanzID);
 				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel2", "$InstanzName $Text2");
-				    				SetValue($this->GetIDForIdent("SabotageAlarm"), 1);                                    
+									SetValue($this->GetIDForIdent("SabotageAlarm"), 1);        
+									break 2;							
 							} elseif($VariableState == true && $VariableName == $VarNameBatterie && $DiffToLastChange <= 10)
                             {    
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text3);
@@ -303,6 +306,7 @@ class Alarmanlage extends IPSModule {
 				    					WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel3", "$InstanzName $Text3");                                   
 
 									}
+									break 2;
                             } elseif($VariableState == true && $VariableName == $VarNameLeben && $DiffToLastChange <= 10)
                             {    
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text4);
@@ -311,6 +315,7 @@ class Alarmanlage extends IPSModule {
 				    					WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel4", "$InstanzName $Text4");
 
 									}
+									break 2;
 							}
 		  }
           
