@@ -288,7 +288,7 @@ class Alarmanlage extends IPSModule {
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel1", "$InstanzName $Text1", "$AlertSound1", $InstanzID);
 				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel1", "$InstanzName $Text1");
 									SetValue($this->GetIDForIdent("MagnetAlarm"), 1);
-									break 2;
+									break;
                                     
 							} elseif($VariableState == true && $VariableName == $VarNameSabotage && $DiffToLastChange <= 10)
                             {    
@@ -297,7 +297,7 @@ class Alarmanlage extends IPSModule {
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel2", "$InstanzName $Text2", "$AlertSound2", $InstanzID);
 				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel2", "$InstanzName $Text2");
 									SetValue($this->GetIDForIdent("SabotageAlarm"), 1);        
-									break 2;							
+									break;							
 							} elseif($VariableState == true && $VariableName == $VarNameBatterie && $DiffToLastChange <= 10)
                             {    
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text3);
@@ -306,7 +306,7 @@ class Alarmanlage extends IPSModule {
 				    					WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel3", "$InstanzName $Text3");                                   
 
 									}
-									break 2;
+									break;
                             } elseif($VariableState == true && $VariableName == $VarNameLeben && $DiffToLastChange <= 10)
                             {    
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text4);
@@ -315,7 +315,7 @@ class Alarmanlage extends IPSModule {
 				    					WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel4", "$InstanzName $Text4");
 
 									}
-									break 2;
+									break;
 							}
 		  }
           
