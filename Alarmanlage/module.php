@@ -283,12 +283,12 @@ class Alarmanlage extends IPSModule {
 
 							if($VariableState == true && $VariableName == $VarNameStatus && $AlarmAktiv == true && $DiffToLastChange <= 10)
 							{    
-									break;
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text1);
                                     
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel1", "$InstanzName $Text1", "$AlertSound1", $InstanzID);
 				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel1", "$InstanzName $Text1");
 									SetValue($this->GetIDForIdent("MagnetAlarm"), 1);	
+									break;
                                     
 							} elseif($VariableState == true && $VariableName == $VarNameSabotage && $DiffToLastChange <= 10)
                             {    
@@ -317,6 +317,7 @@ class Alarmanlage extends IPSModule {
 									}
 									break;
 							}
+				break;
 		  }
           
 		  /*
