@@ -316,7 +316,7 @@ class Alarmanlage extends IPSModule {
 		  } */
           
 		  
-          switch($AlarmStatus)
+          switch($AlarmAktiv)
           {
               case true: // Alarm eingeschaltet
                    
