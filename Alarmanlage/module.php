@@ -272,7 +272,7 @@ class Alarmanlage extends IPSModule {
 		  $VarNameLeben = $this->ReadPropertyString("Nachricht4");
 
 
-		  /*foreach($array as $arrayID)
+		  foreach($array as $arrayID)
 		  {
 				  $VariableName = IPS_GetName($arrayID->ID);
 				  $VariableState = GetValue($arrayID->ID);
@@ -281,7 +281,7 @@ class Alarmanlage extends IPSModule {
 			      $VariableInfo = IPS_GetVariable($arrayID->ID);
 				  $DiffToLastChange = strtotime("now") - $VariableInfo["VariableChanged"];
 
-							if($VariableState == true && $VariableName == $VarNameStatus && $AlarmAktiv == true && $DiffToLastChange <= 10)
+							if($VariableState == true && $VariableName == $VarNameStatus && $AlarmAktiv == true && $DiffToLastChange <= 1)
 							{    
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text1);
                                     
@@ -289,14 +289,14 @@ class Alarmanlage extends IPSModule {
 				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel1", "$InstanzName $Text1");
 									SetValue($this->GetIDForIdent("MagnetAlarm"), 1);	
                                     
-							} elseif($VariableState == true && $VariableName == $VarNameSabotage && $DiffToLastChange <= 10)
+							} elseif($VariableState == true && $VariableName == $VarNameSabotage && $DiffToLastChange <= 1)
                             {    
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text2);
                                     
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel2", "$InstanzName $Text2", "$AlertSound2", $InstanzID);
 				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel2", "$InstanzName $Text2");
 									SetValue($this->GetIDForIdent("SabotageAlarm"), 1);        
-							} elseif($VariableState == true && $VariableName == $VarNameBatterie && $DiffToLastChange <= 10)
+							} elseif($VariableState == true && $VariableName == $VarNameBatterie && $DiffToLastChange <= 1)
                             {    
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text3);
 									if($PushNachricht3 == true) {
@@ -304,7 +304,7 @@ class Alarmanlage extends IPSModule {
 				    					WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel3", "$InstanzName $Text3");                                   
 
 									}
-                            } elseif($VariableState == true && $VariableName == $VarNameLeben && $DiffToLastChange <= 10)
+                            } elseif($VariableState == true && $VariableName == $VarNameLeben && $DiffToLastChange <= 1)
                             {    
                                     SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text4);
 									if($PushNachricht4 == true) {
@@ -313,56 +313,7 @@ class Alarmanlage extends IPSModule {
 
 									}
 							}
-		  } */
-          
-		  
-          switch($AlarmAktiv)
-          {
-              case true: // Alarm eingeschaltet
-                   
-                        foreach ($array as $StatusID) 
-                            {
-                            $Status = GetValue($StatusID->ID);
-							$VariableName = IPS_GetName($StatusID->ID);
-                            $InstanzID = IPS_GetParent($StatusID->ID);
-                            $InstanzName = IPS_GetName($InstanzID);   
-			    			$VariableInfo = IPS_GetVariable($StatusID->ID);
-			    			$DiffToLastChange = strtotime("now") - $VariableInfo["VariableChanged"];
-                    
-                            if($Status == true && $DiffToLastChange <= 10)
-                                {    
-                                    SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
-                                    
-                                    WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text", "$AlertSound", $InstanzID);
-				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text");
-				    				SetValue($this->GetIDForIdent("MagnetAlarm"), 1);
-                                    
-                                }
-                               
-                            }
-                    
-                        foreach ($array as $StatusID)
-                        {
-                            $Status = GetValue($StatusID->ID);
-                            $InstanzID = IPS_GetParent($StatusID->ID);
-                            $InstanzName = IPS_GetName($InstanzID->ID);
-                            $VariableInfo = IPS_GetVariable($StatusID->ID);
-			    			$DiffToLastChange = strtotime("now") - $VariableInfo["VariableChanged"];
-                    
-                            if($Status == true && $DiffToLastChange <= 10)
-                                {    
-                                    SetValue($this->GetIDforIdent("LastAlert"), $InstanzName);
-                                    
-                                    WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text", "$AlertSound", $InstanzID);
-                                    WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel", "$InstanzName $Text");
-                                    
-                                }
-                            
-                        }
-                    
-              break;  
-		  }
-		   
+		  } 
    
         }
 
