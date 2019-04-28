@@ -350,10 +350,12 @@ class Alarmanlage extends IPSModule {
             $this->SendDebug("MessageSink", "SenderID: ". $SenderID .", Message: ". $Message , 0);
             $ID = json_decode($this->ReadPropertyString("Supplement"));
 
-            foreach ($ID as $state) {
-                        $this->StateCheck();
-                    
-                    return;
+			foreach ($ID as $state) {
+					if($state->ID == $SenderID)
+					{
+							$this->StateCheck();
+							return;
+					}
 	    	}
             
 	}
