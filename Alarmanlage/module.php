@@ -249,7 +249,7 @@ class Alarmanlage extends IPSModule {
        
         public function StateCheck() {
            
-         /* $array = json_decode($this->ReadPropertyString("Supplement"));
+          $array = json_decode($this->ReadPropertyString("Supplement"));
           
           $AlarmAktiv = GetValue($this->GetIDForIdent("State"));
           $Titel1 = $this->ReadPropertyString("PushTitel1");
@@ -272,7 +272,7 @@ class Alarmanlage extends IPSModule {
 		  $VarNameLeben = $this->ReadPropertyString("Nachricht4");
 
 
-		  foreach($array as $arrayID)
+		  /*foreach($array as $arrayID)
 		  {
 				  $VariableName = IPS_GetName($arrayID->ID);
 				  $VariableState = GetValue($arrayID->ID);
