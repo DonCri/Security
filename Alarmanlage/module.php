@@ -276,10 +276,10 @@ class Alarmanlage extends IPSModule {
                 $InstanzName = IPS_GetName($InstanzID);   	
 				$VariableInfo = IPS_GetVariable($arrayID->ID);
 				$DiffToLastChange = strtotime("now") - $VariableInfo["VariableChanged"];
-				$VarNameStatus = $this->ReadPropertyString("Nachricht1");
-				$VarNameSabotage = $this->ReadPropertyString("Nachricht2");
-				$VarNameBatterie = $this->ReadPropertyString("Nachricht3");
-		  		$VarNameLeben = $this->ReadPropertyString("Nachricht4");
+				$VarNameStatus = GetValue($this->ReadPropertyString("Nachricht1"));
+				$VarNameSabotage = GetValue($this->ReadPropertyString("Nachricht2"));
+				$VarNameBatterie = GetValue($this->ReadPropertyString("Nachricht3"));
+		  		$VarNameLeben = GetValue($this->ReadPropertyString("Nachricht4"));
 
 
 							if($VariableState == true && $VariableName == $VarNameStatus && $AlarmAktiv == true && $DiffToLastChange <= 1)
