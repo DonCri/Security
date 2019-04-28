@@ -266,20 +266,21 @@ class Alarmanlage extends IPSModule {
 		  $Titel4 = $this->ReadPropertyString("PushTitel4");
           $Text4 = $this->ReadPropertyString("PushText4");
           $AlertSound4 = $this->ReadPropertyString("AlertSound4");
-		  $VarNameStatus = $this->ReadPropertyString("Nachricht1");
-		  $VarNameSabotage = $this->ReadPropertyString("Nachricht2");
-		  $VarNameBatterie = $this->ReadPropertyString("Nachricht3");
-		  $VarNameLeben = $this->ReadPropertyString("Nachricht4");
-
+		  
 
 		  foreach($array as $arrayID)
 		  {
-				  $VariableName = IPS_GetName($arrayID->ID);
-				  $VariableState = GetValue($arrayID->ID);
-				  $InstanzID = IPS_GetParent($arrayID->ID);
-                  $InstanzName = IPS_GetName($InstanzID);   
-			      $VariableInfo = IPS_GetVariable($arrayID->ID);
-				  $DiffToLastChange = strtotime("now") - $VariableInfo["VariableChanged"];
+				$VariableName = IPS_GetName($arrayID->ID);
+				$VariableState = GetValue($arrayID->ID);
+			 	$InstanzID = IPS_GetParent($arrayID->ID);
+                $InstanzName = IPS_GetName($InstanzID);   	
+				$VariableInfo = IPS_GetVariable($arrayID->ID);
+				$DiffToLastChange = strtotime("now") - $VariableInfo["VariableChanged"];
+				$VarNameStatus = $this->ReadPropertyString("Nachricht1");
+				$VarNameSabotage = $this->ReadPropertyString("Nachricht2");
+				$VarNameBatterie = $this->ReadPropertyString("Nachricht3");
+		  		$VarNameLeben = $this->ReadPropertyString("Nachricht4");
+
 
 							if($VariableState == true && $VariableName == $VarNameStatus && $AlarmAktiv == true && $DiffToLastChange <= 1)
 							{    
