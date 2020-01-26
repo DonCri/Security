@@ -344,10 +344,11 @@ class Alarmanlage extends IPSModule {
 				}	
 					 
         }  
+		}
    
 	public function StateCheck4() {
            
-          $array = json_decode($this->ReadPropertyString("Supplement2"));
+          $array = json_decode($this->ReadPropertyString("Supplement4"));
           
           $AlarmAktiv = GetValue($this->GetIDForIdent("State"));
           $Titel4 = $this->ReadPropertyString("PushTitel4");
@@ -371,12 +372,10 @@ class Alarmanlage extends IPSModule {
 									SetValue($this->GetIDForIdent("MagnetAlarm"), 1);	
 					break; 
 				}	
-					 
-        }  
-   
-        }
+			}
 
-        }
+	}
+
     public function ApplyChanges() {
             
             // Diese Zeile nicht löschen
