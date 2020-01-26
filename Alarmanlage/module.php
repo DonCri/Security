@@ -265,7 +265,7 @@ class Alarmanlage extends IPSModule {
 			 	$InstanzID = IPS_GetParent($arrayID->ID);
                 $InstanzName = IPS_GetName($InstanzID);   	
 				
-				switch($VaruableStatus)
+				switch($VariableStatus)
 				{
 					case true:
 							switch($AlarmAktiv) {
