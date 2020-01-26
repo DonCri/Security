@@ -264,20 +264,21 @@ class Alarmanlage extends IPSModule {
 				$VariableStatus = GetValue($arrayID->ID);
 			 	$InstanzID = IPS_GetParent($arrayID->ID);
                 $InstanzName = IPS_GetName($InstanzID);   	
-				$DiffToLastChange = strtotime("now") - $VariableInfo["VariableChanged"];
 				
 				switch($VaruableStatus)
 				{
 					case true:
-							if($DiffToLastChange <= 10)
-							{    
-                                    SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text1);
+							switch($AlarmAktiv) {
+								case true:
+									SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text1);
                                     
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel1", "$InstanzName $Text1", "$AlertSound1", $InstanzID);
 				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel1", "$InstanzName $Text1");
 									SetValue($this->GetIDForIdent("MagnetAlarm"), 1);	
+
+								break;
 							}
-							break; 
+    				break; 
 				}	
 					 
         }  
