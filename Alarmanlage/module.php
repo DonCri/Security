@@ -261,11 +261,12 @@ class Alarmanlage extends IPSModule {
 		  foreach($array as $arrayID)
 		  {
 				$VariableName = IPS_GetName($arrayID->ID);
+				$VariableStatus = GetValue($arrayID->ID);
 			 	$InstanzID = IPS_GetParent($arrayID->ID);
                 $InstanzName = IPS_GetName($InstanzID);   	
 				$DiffToLastChange = strtotime("now") - $VariableInfo["VariableChanged"];
 				
-				switch($arrayID)
+				switch($VaruableStatus)
 				{
 					case true:
 							if($DiffToLastChange <= 10)
