@@ -363,7 +363,7 @@ class Alarmanlage extends IPSModule {
             // Diese Zeile nicht löschen
             parent::ApplyChanges();
             
-            $StateUpdate1 = json_decode($this->ReadPropertyString("Supplement"));
+            $StateUpdate = json_decode($this->ReadPropertyString("Supplement"));
 			$StateUpdate2 = json_decode($this->ReadPropertyString("Supplement2"));
 			$StateUpdate3 = json_decode($this->ReadPropertyString("Supplement3"));
 			$StateUpdate4 = json_decode($this->ReadPropertyString("Supplement4"));
