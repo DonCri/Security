@@ -419,21 +419,21 @@ class Alarmanlage extends IPSModule {
 			foreach ($ID2 as $state2) {
 					if($state2->ID == $SenderID)
 					{
-							$this->StateCheck();
+							$this->StateCheck2();
 							return;
 					}
 	    	}
 			foreach ($ID3 as $state3) {
 					if($state3->ID == $SenderID)
 					{
-							$this->StateCheck();
+							$this->StateCheck3();
 							return;
 					}
 	    	}
 			foreach ($ID4 as $state4) {
 					if($state4->ID == $SenderID)
 					{
-							$this->StateCheck();
+							$this->StateCheck4();
 							return;
 					}
 	    	}
