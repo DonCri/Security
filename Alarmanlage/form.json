@@ -49,7 +49,7 @@
     		{"caption": "turn", "value": "turn" } ] }, 
 	
 	{ "type": "Label", "caption": "" },
-	{ "type": "Label", "caption": "Nachricht 2"  },
+	{ "type": "Label", "caption": "Alarm 2"  },
 	{ "type": "Label", "caption": "ID's für Alarmauslösung" },
 	{ "type": "List",
       "name": "Supplement2",
@@ -93,7 +93,7 @@
 			{"caption": "turn", "value": "turn" } ] },
 
 { "type": "Label", "caption": "" },
-{ "type": "Label", "caption": "Nachricht 3"  },
+{ "type": "Label", "caption": "Alarm 3"  },
 { "type": "Label", "caption": "ID's für Alarmauslösung" },
 { "type": "List",
       "name": "Supplement3",
@@ -138,7 +138,7 @@
     		{"caption": "turn", "value": "turn" } ] },
 
 { "type": "Label", "caption": "" },
-{ "type": "Label", "caption": "Nachricht 4"  },
+{ "type": "Label", "caption": "Alarm 4"  },
 { "type": "Label", "caption": "ID's für Alarmauslösung" },
 	{ "type": "List",
       "name": "Supplement4",
