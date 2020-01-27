@@ -3,7 +3,7 @@
   [
   	{ "type": "Label", "caption": "WebFront"},
   	{ "type": "SelectInstance", "name": "WebFrontName", "caption": "Wird für Pushnachrichten auf Mobilgeräte benötigt" },	
-	{ "type": "label", "caption": "" },
+	{ "type": "Label", "caption": "" },
 	{ "type": "Label", "caption": "Alarm 1"  },
 	{ "type": "Label", "caption": "ID's für Alarmauslösung" },
     { "type": "List",
@@ -48,7 +48,7 @@
     		{"caption": "trickling", "value": "trickling" },
     		{"caption": "turn", "value": "turn" } ] }, 
 	
-	{ "type": "label", "caption": "" },
+	{ "type": "Label", "caption": "" },
 	{ "type": "Label", "caption": "Nachricht 2"  },
 	{ "type": "Label", "caption": "ID's für Alarmauslösung" },
 	{ "type": "List",
@@ -92,7 +92,7 @@
     		{"caption": "trickling", "value": "trickling" },
 			{"caption": "turn", "value": "turn" } ] },
 
-{ "type": "label", "caption": "" },
+{ "type": "Label", "caption": "" },
 { "type": "Label", "caption": "Nachricht 3"  },
 { "type": "Label", "caption": "ID's für Alarmauslösung" },
 { "type": "List",
@@ -137,7 +137,7 @@
     		{"caption": "trickling", "value": "trickling" },
     		{"caption": "turn", "value": "turn" } ] },
 
-{ "type": "label", "caption": "" },
+{ "type": "Label", "caption": "" },
 { "type": "Label", "caption": "Nachricht 4"  },
 { "type": "Label", "caption": "ID's für Alarmauslösung" },
 	{ "type": "List",
