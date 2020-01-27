@@ -311,10 +311,11 @@ class Alarmanlage extends IPSModule {
 					case true:
 							if($Timediff < 10) {
 									SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text2);
-                                    
+									SetValue($this->GetIDForIdent("MagnetAlarm"), 1);
+									
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel2", "$InstanzName $Text2", "$AlertSound2", $InstanzID);
 				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel2", "$InstanzName $Text2");
-									SetValue($this->GetIDForIdent("MagnetAlarm"), 1);	
+										
 							}
 					break; 
 				}	
@@ -341,17 +342,22 @@ class Alarmanlage extends IPSModule {
 				$VariableStatus = GetValue($arrayID->ID);
 			 	$InstanzID = IPS_GetParent($arrayID->ID);
                 $InstanzName = IPS_GetName($InstanzID);   	
-				
+				$Push3 = GetValue($this->GetIDForIdent("PushNachrichten3"));
+
 				switch($VariableStatus)
 				{
 					case true:
 							if($Timediff < 10) {
 									SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text3);
-                                    
-                                    WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel3", "$InstanzName $Text3", "$AlertSound3", $InstanzID);
-				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel3", "$InstanzName $Text3");
-									SetValue($this->GetIDForIdent("MagnetAlarm"), 1);	
-							}
+                                    SetValue($this->GetIDForIdent("MagnetAlarm"), 1);	
+									
+									switch($Push3) {
+										case true:
+											WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel3", "$InstanzName $Text3", "$AlertSound3", $InstanzID);
+											WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel3", "$InstanzName $Text3");
+										break;
+									}
+                            }
 					break; 
 				}	
 					 
@@ -369,23 +375,28 @@ class Alarmanlage extends IPSModule {
 		  $VariableInfo = IPS_GetVariable($arrayID->ID); //Liefert Informationen über die Variable
 		  $LastChange = $VariableInfo[VariableChanged];
 		  $Timediff = time() - $LastChange;
-		  
+
 		  foreach($array as $arrayID)
 		  {
 				$VariableName = IPS_GetName($arrayID->ID);
 				$VariableStatus = GetValue($arrayID->ID);
 			 	$InstanzID = IPS_GetParent($arrayID->ID);
                 $InstanzName = IPS_GetName($InstanzID);   	
-				
+				$Push4 = GetValue($this->GetIDForIdent("PushNachrichten4"));
+
 				switch($VariableStatus)
 				{
 					case true:
 							if($Timediff < 10) {
 									SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text4);
-                                    
-                                    WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel4", "$InstanzName $Text4", "$AlertSound4", $InstanzID);
-				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel4", "$InstanzName $Text4");
-									SetValue($this->GetIDForIdent("MagnetAlarm"), 1);	
+                                    SetValue($this->GetIDForIdent("MagnetAlarm"), 1);	
+
+									switch($Push4) {
+										case true:
+                                    		WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel4", "$InstanzName $Text4", "$AlertSound4", $InstanzID);
+											WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel4", "$InstanzName $Text4");
+										break;
+									}
 							}
 					break; 
 				}	
