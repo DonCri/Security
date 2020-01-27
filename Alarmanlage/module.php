@@ -67,10 +67,6 @@ class Alarmanlage extends IPSModule {
             $this->RegisterPropertyString("PushText4", ""); // Test welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("AlertSound4", ""); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon
 
-			$this->RegisterPropertyString("Nachricht1", "Status");
-			$this->RegisterPropertyString("Nachricht2", "Ereignis");
-			$this->RegisterPropertyString("Nachricht3", "Batterie");
-			$this->RegisterPropertyString("Nachricht4", "Lebenszeichen");
 			$this->RegisterPropertyBoolean("PushNachrichten3", false);
 	    	$this->RegisterPropertyBoolean("PushNachrichten4", false);
             
