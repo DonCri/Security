@@ -91,8 +91,10 @@ class Alarmanlage extends IPSModule {
             $this->EnableAction("NewPassword");
             IPS_SetHidden($this->GetIDForIdent("NewPassword"), true);
 
-	    	$this->RegisterVariableInteger("MagnetAlarm", "Alarmauslösung", "", "10");
-	    	$this->RegisterVariableInteger("SabotageAlarm", "SabotageAlarm", "", "11");
+	    	$this->RegisterVariableInteger("Alarm1", "Alarm 1", "", "10");
+	    	$this->RegisterVariableInteger("Alarm2", "Alarm 2", "", "11");
+			$this->RegisterVariableInteger("Alarm3", "Alarm 3", "", "12");
+	    	$this->RegisterVariableInteger("Alarm4", "Alarm 4", "", "13");
 
 
             
@@ -274,7 +276,7 @@ class Alarmanlage extends IPSModule {
                                     	
                                     	WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel1", "$InstanzName $Text1", "$AlertSound1", $InstanzID);
 				    					WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel1", "$InstanzName $Text1");
-										SetValue($this->GetIDForIdent("MagnetAlarm"), 1);	
+										SetValue($this->GetIDForIdent("Alarm1"), 1);	
 
 									break;
 							}
@@ -311,7 +313,7 @@ class Alarmanlage extends IPSModule {
 					case true:
 							if($Timediff < 10) {
 									SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text2);
-									SetValue($this->GetIDForIdent("MagnetAlarm"), 1);
+									SetValue($this->GetIDForIdent("Alarm2"), 1);
 									
                                     WFC_PushNotification($this->ReadPropertyInteger("WebFrontName"), "$Titel2", "$InstanzName $Text2", "$AlertSound2", $InstanzID);
 				    				WFC_SendPopup($this->ReadPropertyInteger("WebFrontName"), "$Titel2", "$InstanzName $Text2");
@@ -349,7 +351,7 @@ class Alarmanlage extends IPSModule {
 					case true:
 							if($Timediff < 10) {
 									SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text3);
-                                    SetValue($this->GetIDForIdent("MagnetAlarm"), 1);	
+                                    SetValue($this->GetIDForIdent("Alarm3"), 1);	
 									
 									switch($Push3) {
 										case true:
@@ -389,7 +391,7 @@ class Alarmanlage extends IPSModule {
 					case true:
 							if($Timediff < 10) {
 									SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text4);
-                                    SetValue($this->GetIDForIdent("MagnetAlarm"), 1);	
+                                    SetValue($this->GetIDForIdent("Alarm4"), 1);	
 
 									switch($Push4) {
 										case true:
