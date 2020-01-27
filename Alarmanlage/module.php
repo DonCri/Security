@@ -269,7 +269,7 @@ class Alarmanlage extends IPSModule {
 				switch($VariableStatus)
 				{
 					case true:
-							if($Timediff < 10) {
+							if($Timediff < 20) {
 								switch($AlarmAktiv) {
 									case true:
 										SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text1);
@@ -311,7 +311,7 @@ class Alarmanlage extends IPSModule {
 				switch($VariableStatus)
 				{
 					case true:
-							if($Timediff < 10) {
+							if($Timediff < 20) {
 									SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text2);
 									SetValue($this->GetIDForIdent("Alarm2"), 1);
 									
@@ -349,7 +349,7 @@ class Alarmanlage extends IPSModule {
 				switch($VariableStatus)
 				{
 					case true:
-							if($Timediff < 10) {
+							if($Timediff < 20) {
 									SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text3);
                                     SetValue($this->GetIDForIdent("Alarm3"), 1);	
 									
@@ -389,7 +389,7 @@ class Alarmanlage extends IPSModule {
 				switch($VariableStatus)
 				{
 					case true:
-							if($Timediff < 10) {
+							if($Timediff < 20) {
 									SetValue($this->GetIDforIdent("LastAlert"), $InstanzName . ' ' . $Text4);
                                     SetValue($this->GetIDForIdent("Alarm4"), 1);	
 
