@@ -3,6 +3,7 @@
   [
   	{ "type": "Label", "caption": "WebFront"},
   	{ "type": "SelectInstance", "name": "WebFrontName", "caption": "Wird für Pushnachrichten auf Mobilgeräte benötigt" },	
+{ "type": "Label", "caption": "Text für Nachricht 1"  },
 	{ "type": "Label", "caption": "ID's für Alarmauslösung" },
     { "type": "List",
       "name": "Supplement",
@@ -23,8 +24,7 @@
 
 	{ "type": "Label", "caption": "Nachricht 1"  },
 	{ "type": "ValidationTextBox", "name": "Nachricht1", "caption": "Variablen Name" },
-	{ "type": "Label", "caption": "Text für Nachricht 1"  },
-    {"type": "ValidationTextBox", "name": "PushTitel1", "caption": "Anzuzeigender Titel"},
+	{"type": "ValidationTextBox", "name": "PushTitel1", "caption": "Anzuzeigender Titel"},
     {"type": "ValidationTextBox", "name": "PushText1", "caption": "Anzuzeigender Text"},
     {"type": "Select", "name": "AlertSound1", "caption": "Wählbare Töne", "options": [ 
     		{"caption": "kein", "value": "" },
@@ -47,7 +47,8 @@
     		{"caption": "space", "value": "space" },
     		{"caption": "trickling", "value": "trickling" },
     		{"caption": "turn", "value": "turn" } ] }, 
-
+{ "type": "Label", "caption": "Nachricht 2"  },
+{ "type": "Label", "caption": "ID's für Alarmauslösung" },
 { "type": "List",
       "name": "Supplement2",
       "caption": "Supplement",
@@ -64,9 +65,7 @@
       "values": [
       ]
     },
-
-	{ "type": "Label", "caption": "Nachricht 2"  },
-	{ "type": "ValidationTextBox", "name": "Nachricht2", "caption": "Variablen Name" },
+{ "type": "ValidationTextBox", "name": "Nachricht2", "caption": "Variablen Name" },
 	{ "type": "Label", "caption": "Text für Nachricht 2"  },
     {"type": "ValidationTextBox", "name": "PushTitel2", "caption": "Anzuzeigender Titel"},
     {"type": "ValidationTextBox", "name": "PushText2", "caption": "Anzuzeigender Text"},
@@ -91,7 +90,8 @@
     		{"caption": "space", "value": "space" },
     		{"caption": "trickling", "value": "trickling" },
 			{"caption": "turn", "value": "turn" } ] },
-
+{ "type": "Label", "caption": "Nachricht 3"  },
+{ "type": "Label", "caption": "ID's für Alarmauslösung" },
 { "type": "List",
       "name": "Supplement3",
       "caption": "Supplement",
@@ -108,7 +108,6 @@
       "values": [
       ]
     },
-	{ "type": "Label", "caption": "Nachricht 3"  },
 	{ "type": "CheckBox", "name": "PushNachrichten3", "caption": "Pusch-Nachrichten aktivieren?" },
 	{ "type": "ValidationTextBox", "name": "Nachricht3", "caption": "Variablen Name" },
 	{ "type": "Label", "caption": "Text für Nachricht 3"  },
@@ -135,7 +134,8 @@
     		{"caption": "space", "value": "space" },
     		{"caption": "trickling", "value": "trickling" },
     		{"caption": "turn", "value": "turn" } ] },
-
+{ "type": "Label", "caption": "Nachricht 4"  },
+{ "type": "Label", "caption": "ID's für Alarmauslösung" },
 	{ "type": "List",
       "name": "Supplement4",
       "caption": "Supplement",
@@ -152,7 +152,6 @@
       "values": [
       ]
     },
-	{ "type": "Label", "caption": "Nachricht 4"  },
 	{ "type": "CheckBox", "name": "PushNachrichten4", "caption": "Pusch-Nachrichten aktivieren?" },
 	{ "type": "ValidationTextBox", "name": "Nachricht4", "caption": "Variablen Name" },
 	{ "type": "Label", "caption": "Text für Nachricht 4"  },
