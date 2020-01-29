@@ -146,47 +146,22 @@ class Alarmanlage extends IPSModule {
     	    	    {
 			            case 0:
 							SetValue($this->GetIDForIdent("LastAlert"), "");
-							SetValue($this->GetIDForIdent("MagnetAlarm"), 0);
+							SetValue($this->GetIDForIdent("Alarm1"), 0);
 						break;
                                     
 						case 1: // Quittierung Ereignis (Sabotage) 
 							SetValue($this->GetIDForIdent("LastAlert"), "");
-							SetValue($this->GetIDForIdent("SabotageAlarm"), 0);
+							SetValue($this->GetIDForIdent("Alarm2"), 0);
 						
-							foreach($arrayQuittierung as $ID1)
-							{
-									$VarName = IPS_GetName($ID1->ID);
-									$VarNameSoll1 = GetValue($this->ReadPropertyString("Nachricht2"));
-								if($VarName == $VarNameSoll1) {
-									SetValue($ID1->ID, false);
-								}	
-							}
-						break;
-                           
+							break; 
 						case 2: // Quittierung Batterie
 							SetValue($this->GetIDForIdent("LastAlert"), "");
-						
-							foreach($arrayQuittierung as $ID2)
-							{
-								$VarName = IPS_GetName($ID2->ID);
-								$VarNameSoll2 = GetValue($this->ReadPropertyString("Nachricht3"));
-								if($VarName == $VarNameSoll2) {
-									SetValue($ID2->ID, false);
-								}	
-							}
+							SetValue($this->GetIDForIdent("Alarm3"), 0);
 						break;
                                     
 						case 3: // Quittierung Lebenszeichen		
 							SetValue($this->GetIDForIdent("LastAlert"), "");
-						
-							foreach($arrayQuittierung as $ID3)
-							{
-									$VarName = IPS_GetName($ID3->ID);
-									$VarNameSoll3 = GetValue($this->ReadPropertyString("Nachricht4"));
-								if($VarName == $VarNameSoll3) {
-									SetValue($ID3->ID, false);
-								}	
-							}
+							SetValue($this->GetIDForIdent("Alarm4"), 0);
 						break;
 					}
                                 // Platzhalter für Quittierfunktion
