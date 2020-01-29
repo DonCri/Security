@@ -297,16 +297,17 @@ class Alarmanlage extends IPSModule {
           $Titel2 = $this->ReadPropertyString("PushTitel2");
           $Text2 = $this->ReadPropertyString("PushText2");
 		  $AlertSound2 = $this->ReadPropertyString("AlertSound2");
-		  $VariableInfo = IPS_GetVariable($arrayID->ID); //Liefert Informationen über die Variable
-    	  $LastChange = $VariableInfo[VariableChanged];
-		  $Timediff = time() - $LastChange;
-		  
+		  		  
 		  foreach($array as $arrayID)
 		  {
 				$VariableName = IPS_GetName($arrayID->ID);
 				$VariableStatus = GetValue($arrayID->ID);
 			 	$InstanzID = IPS_GetParent($arrayID->ID);
                 $InstanzName = IPS_GetName($InstanzID);   	
+				$VariableInfo = IPS_GetVariable($arrayID->ID); //Liefert Informationen über die Variable
+    	  		$LastChange = $VariableInfo[VariableChanged];
+		  		$Timediff = time() - $LastChange;
+
 				
 				switch($VariableStatus)
 				{
@@ -334,10 +335,7 @@ class Alarmanlage extends IPSModule {
           $Titel3 = $this->ReadPropertyString("PushTitel3");
           $Text3 = $this->ReadPropertyString("PushText3");
 		  $AlertSound3 = $this->ReadPropertyString("AlertSound3");
-		  $VariableInfo = IPS_GetVariable($arrayID->ID); //Liefert Informationen über die Variable
-		  $LastChange = $VariableInfo[VariableChanged];
-		  $Timediff = time() - $LastChange;
-	  
+		  	  
 		  foreach($array as $arrayID)
 		  {
 				$VariableName = IPS_GetName($arrayID->ID);
@@ -345,6 +343,9 @@ class Alarmanlage extends IPSModule {
 			 	$InstanzID = IPS_GetParent($arrayID->ID);
                 $InstanzName = IPS_GetName($InstanzID);   	
 				$Push3 = GetValue($this->GetIDForIdent("PushNachrichten3"));
+				$VariableInfo = IPS_GetVariable($arrayID->ID); //Liefert Informationen über die Variable
+				$LastChange = $VariableInfo[VariableChanged];
+		  		$Timediff = time() - $LastChange;
 
 				switch($VariableStatus)
 				{
@@ -374,10 +375,7 @@ class Alarmanlage extends IPSModule {
           $Titel4 = $this->ReadPropertyString("PushTitel4");
           $Text4 = $this->ReadPropertyString("PushText4");
 		  $AlertSound4 = $this->ReadPropertyString("AlertSound4");
-		  $VariableInfo = IPS_GetVariable($arrayID->ID); //Liefert Informationen über die Variable
-		  $LastChange = $VariableInfo[VariableChanged];
-		  $Timediff = time() - $LastChange;
-
+		  
 		  foreach($array as $arrayID)
 		  {
 				$VariableName = IPS_GetName($arrayID->ID);
@@ -385,6 +383,9 @@ class Alarmanlage extends IPSModule {
 			 	$InstanzID = IPS_GetParent($arrayID->ID);
                 $InstanzName = IPS_GetName($InstanzID);   	
 				$Push4 = GetValue($this->GetIDForIdent("PushNachrichten4"));
+				$VariableInfo = IPS_GetVariable($arrayID->ID); //Liefert Informationen über die Variable
+			    $LastChange = $VariableInfo[VariableChanged];
+		  		$Timediff = time() - $LastChange;
 
 				switch($VariableStatus)
 				{
