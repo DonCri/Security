@@ -137,7 +137,6 @@ class Alarmanlage extends IPSModule {
 
 			$AlarmState = GetValue($this->GetIDForIdent("State"));
 			$AlarmQuittierung = GetValue($this->GetIDForIdent("Quittierung"));
-			$arrayQuittierung = json_decode($this->ReadPropertyString("Supplement"));
 
 			switch ($AlarmState)
             {
