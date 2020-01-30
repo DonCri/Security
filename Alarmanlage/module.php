@@ -316,7 +316,7 @@ class Alarmanlage extends IPSModule {
 				$VariableStatus = GetValue($arrayID->ID);
 			 	$InstanzID = IPS_GetParent($arrayID->ID);
                 $InstanzName = IPS_GetName($InstanzID);   	
-				$Push3 = GetValue($this->GetIDForIdent("PushNachrichten3"));
+				$Push3 = GetValue($this->ReadPropertyBoolean("PushNachrichten3"));
 				$VariableInfo = IPS_GetVariable($arrayID->ID); //Liefert Informationen über die Variable
 				$LastChange = $VariableInfo[VariableChanged];
 		  		$Timediff = time() - $LastChange;
@@ -356,7 +356,7 @@ class Alarmanlage extends IPSModule {
 				$VariableStatus = GetValue($arrayID->ID);
 			 	$InstanzID = IPS_GetParent($arrayID->ID);
                 $InstanzName = IPS_GetName($InstanzID);   	
-				$Push4 = GetValue($this->GetIDForIdent("PushNachrichten4"));
+				$Push4 = GetValue($this->ReadPropertyBoolean("PushNachrichten4"));
 				$VariableInfo = IPS_GetVariable($arrayID->ID); //Liefert Informationen über die Variable
 			    $LastChange = $VariableInfo[VariableChanged];
 		  		$Timediff = time() - $LastChange;
