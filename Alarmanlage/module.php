@@ -140,7 +140,7 @@ class Alarmanlage extends IPSModule {
 			$Alarmmeldungen = GetValue($this->GetIDforIdent("Alarm1"));
 			$Sabotage = GetValue($this->GetIDforIdent("Alarm2"));
 			$Batterie = GetValue($this->GetIDforIdent("Alarm3"));
-			$Lebenszeichen = GetValue($this->GetIDforIdent("Alarm4");
+			$Lebenszeichen = GetValue($this->GetIDforIdent("Alarm4"));
 
 			switch ($AlarmState)
             {
