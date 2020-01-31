@@ -75,7 +75,7 @@ class Alarmanlage extends IPSModule {
             $this->RegisterVariableBoolean("State", "Status", "BRELAG.AlarmStatus", "0");
             
             // Zeigt der Letzte Alarm im Array (Zeigt nur der letzte Wert vom Array)
-            $this->RegisterVariableString("LastAlert", "Letzte Meldung", $this->ReadAttributeString("SaveLastAlert"), "0");
+            $this->RegisterVariableString("LastAlert", "Letzte Meldung", "", "0");
 
             // Stringvariable für Passwort Eingabe um Anlage scharf bzw. unschaf zu schalten, ist aktiv!
             $this->RegisterVariableString("Password", "Passwort Eingabe", "", "1");
