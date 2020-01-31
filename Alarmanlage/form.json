@@ -3,8 +3,6 @@
   [
   	{ "type": "Label", "caption": "WebFront"},
   	{ "type": "SelectInstance", "name": "WebFrontName", "caption": "Wird für Pushnachrichten auf Mobilgeräte benötigt" },	
-	{ "type": "Label", "caption": "Archive" },
-	{ "type": "SelectInstance", "name": "ArchiveID", "caption": "Archive für die Aufzeichnung der Letzten Meldungen" },
 	{ "type": "Label", "caption": "" },
 	{ "type": "Label", "caption": "Alarm 1"  },
 	{ "type": "Label", "caption": "Alarm muss aktiv sein!" },
