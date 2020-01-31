@@ -92,10 +92,10 @@ class Alarmanlage extends IPSModule {
             $this->EnableAction("NewPassword");
             IPS_SetHidden($this->GetIDForIdent("NewPassword"), true);
 
-	    	$this->RegisterVariableInteger("Alarm1", "Alarm 1", "", "10");
-	    	$this->RegisterVariableInteger("Alarm2", "Alarm 2", "", "11");
-			$this->RegisterVariableInteger("Alarm3", "Alarm 3", "", "12");
-	    	$this->RegisterVariableInteger("Alarm4", "Alarm 4", "", "13");
+	    	$this->RegisterVariableInteger("Alarm1", "Alarmmeldungen", "", "10");
+	    	$this->RegisterVariableInteger("Alarm2", "Sabotage", "", "11");
+			$this->RegisterVariableInteger("Alarm3", "Batterie", "", "12");
+			$this->RegisterVariableInteger("Alarm4", "Lebenszeichen", "", "13");
 
             
 
@@ -144,22 +144,22 @@ class Alarmanlage extends IPSModule {
 	    	        switch ($AlarmQuittierung)
     	    	    {
 			            case 0:
-							SetValue($this->GetIDForIdent("LastAlert"), "");
+							SetValue($this->GetIDForIdent("LastAlert"), "Alarmmeldungen quittiert");
 							SetValue($this->GetIDForIdent("Alarm1"), 0);
 						break;
                                     
 						case 1: // Quittierung Ereignis (Sabotage) 
-							SetValue($this->GetIDForIdent("LastAlert"), "");
+							SetValue($this->GetIDForIdent("LastAlert"), "Sabotage quittiert");
 							SetValue($this->GetIDForIdent("Alarm2"), 0);
 						
 							break; 
 						case 2: // Quittierung Batterie
-							SetValue($this->GetIDForIdent("LastAlert"), "");
+							SetValue($this->GetIDForIdent("LastAlert"), "Batterie quittiert");
 							SetValue($this->GetIDForIdent("Alarm3"), 0);
 						break;
                                     
 						case 3: // Quittierung Lebenszeichen		
-							SetValue($this->GetIDForIdent("LastAlert"), "");
+							SetValue($this->GetIDForIdent("LastAlert"), "Lebenszeichen quittiert");
 							SetValue($this->GetIDForIdent("Alarm4"), 0);
 						break;
 					}
