@@ -52,6 +52,7 @@ class Alarmanlage extends IPSModule {
             // Eigenschaften für Formular
             $this->RegisterPropertyString("Supplement", "[]"); // Liste für boolean Variablen (z.B. Magnetkontakt -> Status). Können auch andere Variablen sein, solange es sich um Boolsche handelt.
             $this->RegisterPropertyInteger("WebFrontName", 0); // Integer Wert für WebFront Auswahl. Wird für die Push-Nachrichten benötigt
+			$this->RegisterPropertyInteger("Archive", 0); // Archive ID für das Login der Letzten Meldungen
             $this->RegisterPropertyString("PushTitel1", ""); // Titel welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("PushText1", ""); // Test welches in der Pusch-Nachricht angezeigt werden soll
             $this->RegisterPropertyString("AlertSound1", ""); // Wählbare Alarm Sounds für Mobilgeräte (siehe Liste von Symcon
@@ -432,6 +433,8 @@ class Alarmanlage extends IPSModule {
 			foreach ($StateUpdate4 as $IDUpdate4) {
                 $this->RegisterMessage($IDUpdate4->ID, VM_UPDATE);
 	    	}
+			AC_SetLoggingStatus($this->GetIDforIdent("Archive"), $this->GetIDforIdent("LastAlert") , true);
+			AC_SetGraphStatus($this->GetIDforIdent("Archive"), $this->GetIDforIdent("LastAlert"), true);
 	}
         
 	public function MessageSink($TimeStamp, $SenderID, $Message, $Data) {
