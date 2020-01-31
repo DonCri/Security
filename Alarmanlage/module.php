@@ -433,7 +433,6 @@ class Alarmanlage extends IPSModule {
 			foreach ($StateUpdate4 as $IDUpdate4) {
                 $this->RegisterMessage($IDUpdate4->ID, VM_UPDATE);
 	    	}
-			AC_SetLoggingStatus($this->ReadPropertyInteger("ArchiveID"), $this->GetIDforIdent("LastAlert") , true);
 	}
         
 	public function MessageSink($TimeStamp, $SenderID, $Message, $Data) {
