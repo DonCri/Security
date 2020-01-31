@@ -47,7 +47,8 @@ class Alarmanlage extends IPSModule {
         			IPS_SetVariableProfileAssociation("BRELAG.AlarmStatus", 0, $this->Translate("Off"), "", -1);
         			IPS_SetVariableProfileAssociation("BRELAG.AlarmStatus", 1, $this->Translate("On"), "", -1);
             }
-            
+
+
             // Eigenschaften für Formular
             $this->RegisterPropertyString("Supplement", "[]"); // Liste für boolean Variablen (z.B. Magnetkontakt -> Status). Können auch andere Variablen sein, solange es sich um Boolsche handelt.
             $this->RegisterPropertyInteger("WebFrontName", 0); // Integer Wert für WebFront Auswahl. Wird für die Push-Nachrichten benötigt
@@ -74,7 +75,7 @@ class Alarmanlage extends IPSModule {
             $this->RegisterVariableBoolean("State", "Status", "BRELAG.AlarmStatus", "0");
             
             // Zeigt der Letzte Alarm im Array (Zeigt nur der letzte Wert vom Array)
-            $this->RegisterVariableString("LastAlert", "Letzte Meldung", "", "0");
+            $this->RegisterVariableString("LastAlert", "Letzte Meldung", $this->ReadAttributeString("SaveLastAlert"), "0");
 
             // Stringvariable für Passwort Eingabe um Anlage scharf bzw. unschaf zu schalten, ist aktiv!
             $this->RegisterVariableString("Password", "Passwort Eingabe", "", "1");
@@ -96,6 +97,8 @@ class Alarmanlage extends IPSModule {
 			$this->RegisterVariableInteger("Alarm3", "Alarm 3", "", "12");
 	    	$this->RegisterVariableInteger("Alarm4", "Alarm 4", "", "13");
 
+			// Attribute
+			$this->RegisterAttributeString("SaveLastAlert", "");
 
             
 
@@ -304,7 +307,6 @@ class Alarmanlage extends IPSModule {
         public function StateCheck3() {
            
           $array = json_decode($this->ReadPropertyString("Supplement3"));
-          
           $AlarmAktiv = GetValue($this->GetIDForIdent("State"));
           $Titel3 = $this->ReadPropertyString("PushTitel3");
           $Text3 = $this->ReadPropertyString("PushText3");
@@ -318,7 +320,7 @@ class Alarmanlage extends IPSModule {
                 $InstanzName = IPS_GetName($InstanzID);   	
 				$Push3 = GetValue($this->ReadPropertyBoolean("PushNachrichten3"));
 				$VariableInfo = IPS_GetVariable($arrayID->ID); //Liefert Informationen über die Variable
-				$LastChange = GetValue($VariableInfo[VariableChanged]);
+				$LastChange = GetValue($VariableInfo['VariableChanged']);
 		  		$Timediff = time() - $LastChange;
 
 				switch($VariableStatus)
@@ -344,7 +346,7 @@ class Alarmanlage extends IPSModule {
 	public function StateCheck4() {
            
           $array = json_decode($this->ReadPropertyString("Supplement4"));
-          
+
           $AlarmAktiv = GetValue($this->GetIDForIdent("State"));
           $Titel4 = $this->ReadPropertyString("PushTitel4");
           $Text4 = $this->ReadPropertyString("PushText4");
@@ -358,7 +360,7 @@ class Alarmanlage extends IPSModule {
                 $InstanzName = IPS_GetName($InstanzID);   	
 				$Push4 = GetValue($this->ReadPropertyBoolean("PushNachrichten4"));
 				$VariableInfo = IPS_GetVariable($arrayID->ID); //Liefert Informationen über die Variable
-			    $LastChange = GetValue($VariableInfo[VariableChanged]);
+			    $LastChange = GetValue($VariableInfo['VariableChanged']);
 		  		$Timediff = time() - $LastChange;
 
 				switch($VariableStatus)
