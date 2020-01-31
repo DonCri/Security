@@ -143,24 +143,56 @@ class Alarmanlage extends IPSModule {
             	case false:
 	    	        switch ($AlarmQuittierung)
     	    	    {
-			            case 0:
-							SetValue($this->GetIDForIdent("LastAlert"), "Alarmmeldungen quittiert");
-							SetValue($this->GetIDForIdent("Alarm1"), 0);
+						case 0:
+							switch ($Alarmmeldungen) {
+							case 1:
+								SetValue($this->GetIDForIdent("LastAlert"), "Alarmmeldungen quittiert");
+								SetValue($this->GetIDForIdent("Alarm1"), 0);
+							break;
+							
+							default:
+								echo "Ungültige Quittierung";
+							break;
+							}
 						break;
                                     
 						case 1: // Quittierung Ereignis (Sabotage) 
-							SetValue($this->GetIDForIdent("LastAlert"), "Sabotage quittiert");
-							SetValue($this->GetIDForIdent("Alarm2"), 0);
-						
-							break; 
+							switch ($Sabotage) {
+							case 1:
+								SetValue($this->GetIDForIdent("LastAlert"), "Sabotage quittiert");
+								SetValue($this->GetIDForIdent("Alarm2"), 0);
+							break;
+							
+							default:
+								echo "Ungültige Quittierung";
+							break;
+							}
+						break;
+
 						case 2: // Quittierung Batterie
-							SetValue($this->GetIDForIdent("LastAlert"), "Batterie quittiert");
-							SetValue($this->GetIDForIdent("Alarm3"), 0);
+							switch ($Batterie) {
+							case 1:
+								SetValue($this->GetIDForIdent("LastAlert"), "Batterie quittiert");
+								SetValue($this->GetIDForIdent("Alarm3"), 0);
+							break;
+							
+							default:
+								echo "Ungültige Quittierung";
+							break;
+							} 
 						break;
                                     
 						case 3: // Quittierung Lebenszeichen		
-							SetValue($this->GetIDForIdent("LastAlert"), "Lebenszeichen quittiert");
-							SetValue($this->GetIDForIdent("Alarm4"), 0);
+							switch ($Lebenszeichen) {
+							case 1:
+								SetValue($this->GetIDForIdent("LastAlert"), "Lebenszeichen quittiert");
+								SetValue($this->GetIDForIdent("Alarm4"), 0);
+							break;
+							
+							default:
+								echo "Ungültige Quittierung";
+							break;
+							}	
 						break;
 					}
                                 // Platzhalter für Quittierfunktion
